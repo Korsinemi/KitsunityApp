@@ -1,5 +1,5 @@
 const Util = require('../../util/MitUtil.js');
-const animaction = require('../../util/animaction');
+const animaction = require('../../util/animaction/index.js');
 const Discord = require('discord.js');
 
 module.exports = {

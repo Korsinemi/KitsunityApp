@@ -1,6 +1,6 @@
 const Util = require('../../util/MitUtil.js');
 const Discord = require('discord.js');
-const animaction = require('../../util/animaction');
+const animaction = require('../../util/animaction/index.js');
 
 module.exports = {
   name: 'fact',
