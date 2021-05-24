@@ -1,6 +1,5 @@
 # Librerias requeridas
 node_modules
-config.json
 slash.commands
 slash.js
 
