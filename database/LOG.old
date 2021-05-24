@@ -1,0 +1,9 @@
+2021/05/20-10:57:56.725 1e30 Recovering log #405
+2021/05/20-10:57:56.888 1e30 Delete type=0 #405
+2021/05/20-10:57:56.893 1e30 Delete type=3 #404
+2021/05/20-11:07:00.176 ca0 Compacting 1@0 + 1@1 files
+2021/05/20-11:07:00.258 ca0 Generated table #408@0: 145 keys, 3680 bytes
+2021/05/20-11:07:00.258 ca0 Compacted 1@0 + 1@1 files => 3680 bytes
+2021/05/20-11:07:00.280 ca0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2021/05/20-11:07:00.286 ca0 Delete type=2 #400
+2021/05/20-11:07:00.303 ca0 Delete type=2 #402
