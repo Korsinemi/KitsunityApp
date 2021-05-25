@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const animaction = require('../../util/animaction/index.js');
 
 module.exports = {
-    name: 'dance',
-    description: "Muestra tus pasos owo",
+    name: 'wag',
+    description: "Bate la colita UwU",
     aliases: [],
     usage: '',
     cooldown: 2,
@@ -12,47 +12,47 @@ module.exports = {
     async execute(client, message, args) {
         message.react('✨');
             if (message.mentions.members.size === 0) {
-                const dance = animaction.dance();
+                const wag = animaction.wag();
                 const botaction = [
-                    `**${message.author.username}** esta bailando :3`,
-                    `**${message.author.username}** muestra sus grandes pasos!! .w.`
+                    `**${message.author.username}** bate la colita UwU`,
+                    `**${message.author.username}** esta batiendo la cola nwn`
                 ]
                 randombot = botaction[Math.floor(Math.random() * Math.floor(botaction.length))];
                 const embed = new Discord.MessageEmbed()
                 .setColor('RANDOM')
                 .setDescription(randombot)
-                .setImage(dance)
+                .setImage(wag)
                 return message.channel.send(embed);
             }
             const member = message.mentions.members.first();
-            const dance = animaction.dance();
+            const wag = animaction.wag();
             if (member.user.id === message.author.id) {
                 const embed = new Discord.MessageEmbed()
                 .setColor('RANDOM')
-                .setDescription(`**${message.author.username}** esta bailando frente a un espejo .w.`)
-                .setImage(dance)
+                .setDescription(`**${message.author.username}** se bate la cola, asi mismo???`)
+                .setImage(wag)
                 return message.channel.send(embed);
             } else if (member.user.id === client.user.id) {
                 const botaction = [
-                    `**${message.author.username}** esta bailando conmigo, grandes pasos amig@ .w.`,
-                    `**${message.author.username}** se puso a bailar conmigo -Se alegra- nwn`
+                    `**${message.author.username}** me esta batiendo la cola, buen chic@ nwn`,
+                    `**${message.author.username}** me bate la cola,de seguro quiere afecto uwu`
                 ]
                 randombot = botaction[Math.floor(Math.random() * Math.floor(botaction.length))];
                 const embed = new Discord.MessageEmbed()
                 .setColor('RANDOM')
                 .setDescription(randombot)
-                .setImage(dance)
+                .setImage(wag)
                 return message.channel.send(embed);
             } else {
             const randomaction = [
-                `**${message.author.username}** se puso a bailar con **${member.user.username}** >w<`,
-                `**${message.author.username}** demuestra sus pasos a **${member.user.username}**!!! :D`
+                `**${message.author.username}** le esta batiendo la cola a **${member.user.username}** >w<`,
+                `**${message.author.username}** esta batiendole la cola a **${member.user.username}**!!! OwO`
             ] //Respuestas posibles
             randomsg = randomaction[Math.floor(Math.random() * Math.floor(randomaction.length))];
             const embed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setDescription(randombot)
-            .setImage(dance)
+            .setImage(wag)
             return message.channel.send(embed);
             }
       }
