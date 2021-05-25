@@ -15,7 +15,7 @@ module.exports = {
   cooldown: 2,
   args: -1,
   catergory: 'Utility',
-  async execute(message, args, client) {
+  async execute(client, message, args) {
     try {
       let Message = `**Server Name: ** ${message.guild.name}\n**Author Name:** ${message.author.tag}\n**Feedback:** ${args.join(" ")}`;
       client.users.cache.get(ownerid).send({
