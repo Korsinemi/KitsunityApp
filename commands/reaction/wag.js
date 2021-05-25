@@ -4,8 +4,8 @@ const animaction = require('../../util/animaction/index.js');
 module.exports = {
     name: 'wag',
     description: "Bate la colita UwU",
-    aliases: [],
-    usage: '',
+    aliases: ['whip', 'moveit'],
+    usage: ' [Usuario]',
     cooldown: 2,
     args: 0,
     catergory: 'Reacción',
