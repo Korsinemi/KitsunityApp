@@ -94,7 +94,7 @@ setInterval(async function () {
         type: "PLAYING",
       },
       {
-        activity: `${client.channels.size} canales`,
+        activity: `${client.channels.cache.size} canales`,
         type: "COMPETING",
       },
       {
