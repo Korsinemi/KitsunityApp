@@ -169,7 +169,7 @@ client.on('message', async message => {
 
             if (!UserImmune) {
                 if (message.content.match(inviteRegex) || message.content.match(botInvRegex)) {
-                    message.reply("Please avoid sending invite links in this server!");
+                    message.reply("Por favor evita enviar links de invitaciona esteservidor >.<");
                     return message.delete();
                 }
             }
@@ -255,7 +255,7 @@ client.on('message', async message => {
 
         if (command.Premium) {
             if (message.author.id != ownerid) {
-                return message.reply("This is a PREMIUM only feature");
+                return message.reply("Esta es una caracteristca PREMIUM");
             }
         }
 
@@ -267,7 +267,7 @@ client.on('message', async message => {
 
             const UsageEmbed = new Discord.MessageEmbed()
                 .setColor('#8B0000')
-                .setTitle('Command: ' + ServerPrefix + command.name)
+                .setTitle('Comando: ' + ServerPrefix + command.name)
                 .setDescription(reply)
                 .setFooter("Requested by " + message.author.tag)
                 .setTimestamp();
@@ -295,7 +295,7 @@ client.on('message', async message => {
                     return message.channel.send({
                         embed: {
                             title: `Whoa! You're sending commands too fast!`,
-                            description: `Please wait **${Util.msToTime(timeLeft)}** before running \`${command.name}\` again! \n\`\`\`You may contact the owner (ContionMig#2582) to purchase a premium status to remove such cooldowns!\`\`\``,
+                            description: `Por favor espera **${Util.msToTime(timeLeft)}** antes de usar \`${command.name}\` denuevo! \n\`\`\`Puedes contactar a mi dueña para adquirir premium (KitsuneCode#5011)\`\`\``,
                             color: "#8B0000",
                             footer: {
                                 text: "Requested by " + message.author.tag,
@@ -348,14 +348,14 @@ client.on('message', async message => {
             command.execute(client, message, args);
 
             var end = new Date() - start;
-            let channel = client.channels.cache.get("831951520483639384");
+            let channel = client.channels.cache.get("841092321448951838");
             if (channel) {
                 channel.send(`${message.guild.name} - ${message.channel.name} -> ${message.author.tag}: ${message.content}`);
             }
-            console.log(`${message.guild.name} - ${message.channel.name} -> ${message.author.tag}: ${message.content} ( Took %dms)`, end);
+            console.log(`${message.guild.name} - ${message.channel.name} -> ${message.author.tag}: ${message.content} (Tiempo de respuesta %dms)`, end);
         } catch (error) {
             console.error(error);
-            message.reply('Sorry! I ran into an error trying to do that!');
+            message.reply('Perdon! Un error ha ocurrido intentando hacer eso!');
         }
     }
     catch (err) {
@@ -387,7 +387,7 @@ client.on('guildMemberAdd', async member => {
         // Slightly smaller text placed above the member's display name
         ctx.font = '28px sans-serif';
         ctx.fillStyle = '#ffffff';
-        ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
+        ctx.fillText('Bienvenido al servidor,', canvas.width / 2.5, canvas.height / 3.5);
 
         // Add an exclamation point here and below
         ctx.font = Util.jsapplyText(canvas, `${member.displayName}!`);
@@ -404,7 +404,7 @@ client.on('guildMemberAdd', async member => {
 
         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
-        channel.send(`Welcome to the server, ${member}!`, attachment);
+        channel.send(`Bienvenido al servidor, ${member}!`, attachment);
     }
     catch (err) {
         console.log(err);
@@ -415,9 +415,9 @@ client.on("guildCreate", guild => {
     try {
         db.set(`${guild.id}_info`, `${guild.name}`);
 
-        client.users.cache.get(ownerid).send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-        client.users.cache.get("831951520483639384").send(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-        console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+        client.users.cache.get(ownerid).send(`Se ha unido un nuevo servidor: ${guild.name} (id: ${guild.id}). Este servidor tiene ${guild.memberCount} miembros!`);
+        client.users.cache.get("841092321448951838").send(`Se ha unido un nuevo servidor: ${guild.name} (id: ${guild.id}). Este servidor tiene ${guild.memberCount} miembros!`);
+        console.log(`Se ha unido un nuevo servidor: ${guild.name} (id: ${guild.id}). Este servidor tiene ${guild.memberCount} miembros!`);
     }
     catch (err) {
         console.log(err);
@@ -426,9 +426,9 @@ client.on("guildCreate", guild => {
 
 client.on("guildDelete", guild => {
     try {
-        client.users.cache.get(ownerid).send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-        client.users.cache.get("831951520483639384").send(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-        console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+        client.users.cache.get(ownerid).send(`He sido removida de un servidor: ${guild.name} (id: ${guild.id})`);
+        client.users.cache.get("841092321448951838").send(`He sido removida de un servidor: ${guild.name} (id: ${guild.id})`);
+        console.log(`He sido removida de un servidor: ${guild.name} (id: ${guild.id})`);
     }
     catch (err) {
         console.log(err);
