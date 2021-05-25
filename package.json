@@ -1,6 +1,6 @@
 {
   "name": "kitsunity",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "[[My Website]](https://mitsuzi.xyz/)",
   "main": "index.js",
   "dependencies": {
@@ -81,5 +81,6 @@
   "bugs": {
     "url": "https://github.com/KitsuneCode/kitsunity/issues"
   },
-  "homepage": "https://github.com/KitsuneCode/kitsunity#readme"
+  "homepage": "https://github.com/KitsuneCode/kitsunity#readme",
+  "devDependencies": {}
 }
