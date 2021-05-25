@@ -6,13 +6,13 @@ const { version } = require("discord.js");
 
 module.exports = {
   name: 'botinfo',
-  description: 'Displays infomation about the bot',
+  description: 'Muestra información sobre mi .w.',
   aliases: ['info', 'bot', 'uptime'],
   usage: '',
   cooldown: 2,
   args: 0,
-  catergory: 'Utility',
-  async execute(message, args, client) {
+  catergory: 'Utilidad',
+  async execute(client, message, args) {
     try {
       let TotalCommands = await db.get(`botstats_totalcommand`);
       cpuStat.usagePercent(function (err, percent, seconds) {
@@ -23,41 +23,41 @@ module.exports = {
         let Uptime = Util.msToTime(client.uptime);
         return message.channel.send({
           embed: {
-            title: "Bot Info",
+            title: "Información de Kitsunity",
             description: args.join(" "),
-            color: "#8B0000",
+            color: "RANDOM",
             footer: {
-              text: "Requested by " + message.author.tag,
+              text: "Pedido por " + message.author.tag,
               icon_url: message.author.displayAvatarURL()
             },
             fields: [
               {
-                name: '• Mem Usage',
+                name: '• Uso de memoria',
                 value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`,
                 inline: true,
               },
               {
-                name: '• Uptime',
+                name: '• Tiempo en linea',
                 value: `${Uptime}`,
                 inline: true,
               },
               {
-                name: '• Users',
+                name: '• Usuarios',
                 value: `${client.users.cache.size * 4}`,
                 inline: true,
               },
               {
-                name: '• Servers',
+                name: '• Servidores',
                 value: `${client.guilds.cache.size}`,
                 inline: true,
               },
               {
-                name: '• Channels',
+                name: '• Canales',
                 value: `${client.channels.cache.size}`,
                 inline: true,
               },
               {
-                name: '• Commands Used',
+                name: '• Comandos Usados',
                 value: `${TotalCommands}`,
                 inline: true,
               },
@@ -67,33 +67,45 @@ module.exports = {
                 inline: false,
               },
               {
-                name: '• CPU usage',
+                name: '• Uso de CPU',
                 value: `\`${percent.toFixed(2)}%\``,
                 inline: true,
               },
               {
-                name: '• Arch',
+                name: '• Arquitectura',
                 value: `\`${os.arch()}\``,
                 inline: true,
               },
               {
-                name: '• Platform',
+                name: '• Plataforma',
                 value: `\`\`${os.platform()}\`\``,
                 inline: true,
               },
+              /*
               {
                 name: '• Discord.js',
                 value: `\`\`v${version}\`\``,
                 inline: true,
               },
+              */
               {
-                name: '• NPM version',
+                name: '• Version de NPM',
                 value: `\`\`${process.version}\`\``,
                 inline: true,
               },
               {
-                name: '• Hosted In',
-                value: `:flag_sg: Singapore`,
+                name: '• Hosted En',
+                value: `:flag_es: España`,
+                inline: true,
+              },
+              {
+                name: '• Enlaces Utiles',
+                value: `[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity)`,
+                inline: true,
+              },
+              {
+                name: '• Staff',
+                value: `Para ver los miembros usa \`\`k=credits\`\``,
                 inline: true,
               }
             ],
