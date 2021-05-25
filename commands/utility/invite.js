@@ -10,7 +10,8 @@ module.exports = {
   args: 0,
   catergory: 'Utilidad',
   async execute(client, message, args) {
-    message.react('💜');
+    message.channel.send(`${message.author} mande un link de invitación a tus mensajes directos owo!`);
+    message.delete();
     const creator = '824760675586932766'
     const embed = new Discord.MessageEmbed()
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }), 'https://github.com/KitsuneCode')
