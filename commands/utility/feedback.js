@@ -5,47 +5,37 @@ const {
   ownerid,
   logchannelid
 } = require('../../config.json');
-
+const Discord = require('discord.js');
 
 module.exports = {
   name: 'feedback',
-  description: 'Sends a suggestion to the developers',
+  description: 'Envia una sugerencia a los desarrolladores de Kitsunity nwn',
   aliases: ['support', 'suggest'],
-  usage: ' [message]',
+  usage: ' [Mensaje]',
   cooldown: 2,
   args: -1,
-  catergory: 'Utility',
+  catergory: 'Utilidad',
   async execute(client, message, args) {
-    try {
-      let Message = `**Server Name: ** ${message.guild.name}\n**Author Name:** ${message.author.tag}\n**Feedback:** ${args.join(" ")}`;
-      client.users.cache.get(ownerid).send({
-        embed: {
-          title: "Feedback",
-          description: Message,
-          color: "#8B0000",
-          footer: {
-            text: "Requested by " + message.author.tag,
-            icon_url: message.author.displayAvatarURL()
-          },
-          timestamp: new Date()
-        }
-      });
+    const suggery = args.slice(0).join(" ");
+    const embedin = new Discord.MessageEmbed()
+    .setTitle('📨・Sugerencia enviada')
+    .setDescription(`Se ha enviado tu sugerencia. Haz un buen uso del comando`)
+    .addField('Sugerencia:', `\n\`\`\`${suggery}\`\`\``, false)
+    .setThumbnail('https://media.giphy.com/media/3o6Mbfsf4DI4Cds5Ms/giphy.gif')
+    .setTimestamp()
+    .setColor('RANDOM')
+    message.channel.send(embedin);
 
-      return message.channel.send({
-        embed: {
-          title: "Feedback",
-          description: "**Content:** " + args.join(" "),
-          color: "#8B0000",
-          footer: {
-            text: "Requested by " + message.author.tag,
-            icon_url: message.author.displayAvatarURL()
-          },
-          timestamp: new Date()
-        }
-      });
-    } catch (err) {
-      console.log(err);
-      return message.reply(`Oh no, an error occurred. Try again later!`);
-    }
+    const embedon = new Discord.MessageEmbed()
+        .setTitle('📢・Nueva sugerencia')
+        .setDescription('>w< Hay una nueva sugerencia para Kitsunity!!')
+        .setField('Servidor:', message.guild.name, true)
+        .addField('Usuario:', message.author.tag, true)
+        .addField('ID:', message.author.id, true)
+        .addField('Sugerencia:', `\n\`\`\`${suggery}\`\`\``, false)
+        .setThumbnail('https://media.giphy.com/media/NFA61GS9qKZ68/giphy.gif')
+        .setTimestamp()
+        .setColor('RANDOM')
+    client.users.cache.get(ownerid).send(embedon);
   }
 };
