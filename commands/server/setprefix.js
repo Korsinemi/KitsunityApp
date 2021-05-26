@@ -3,31 +3,31 @@ const db = require('../../util/Database.js');
 
 module.exports = {
   name: 'setprefix',
-  description: 'Sets a prefix for this server',
+  description: 'Pone un prefix a un servidor',
   aliases: ['sp'],
-  usage: ' [prefix]',
+  usage: ' <Prefix>',
   cooldown: 2,
   args: 1,
-  catergory: 'Server Settings',
-  async execute(message, args, client) {
+  catergory: 'Configuración',
+  async execute(client, message, args) {
     try {
       let ServerPrefix = args[0];
       if (ServerPrefix.length > 5 || ServerPrefix.length < 1) {
-        return message.reply("Please choose a prefix which is 1 - 5 characters");
+        return message.reply("Por favor elije un prefix, debe estar entre 1 a 5 caracteres .w.");
       }
 
       if (!message.member.hasPermission('ADMINISTRATOR')) {
-        return message.reply("Please make sure you have administrator perms!")
+        return message.reply(">.< asegurate que tienes permisos de administrador!")
       }
 
       await db.set(`${message.guild.id}_prefix`, ServerPrefix);
       return message.channel.send({
         embed: {
-          title: "Server Prefix",
-          description: `**New Server Prefix:** ${ServerPrefix}`,
-          color: "#8B0000",
+          title: "Prefix del servidor",
+          description: `Se ha cambiado mi prefix a **${ServerPrefix}**`,
+          color: "RANDOM",
           footer: {
-            text: "Requested by " + message.author.tag,
+            text: "Modificado por " + message.author.tag,
             icon_url: message.author.displayAvatarURL()
           },
           timestamp: new Date()
