@@ -2,31 +2,31 @@ const Util = require('../../util/MitUtil.js');
 
 module.exports = {
   name: 'someone',
-  description: 'The bot will reply with a random person',
+  description: 'Elije un usuario aleatorio',
   aliases: ['something', 'randompick', 'person'],
   usage: '',
   cooldown: 2,
   args: 0,
-  catergory: 'Utility',
-  async execute(message, args, client) {
+  catergory: 'Utilidad',
+  async execute(client, message, args) {
     try {
       const member = message.guild.members.cache.random(1)[0];
       return message.channel.send({
         embed: {
-          title: "Random Person Machine",
-          color: "#8B0000",
+          title: "Se ha elejido un usuario al azar",
+          color: "RANDOM",
           fields: [{
-            name: '• Username',
+            name: '• Usuario',
             value: member.user.username,
             inline: false,
           },
           {
-            name: '• Discriminator',
+            name: '• Apodo',
             value: member.user.discriminator,
             inline: false,
           },
           {
-            name: '• User ID',
+            name: '• ID',
             value: member.user.id,
             inline: false,
           }
