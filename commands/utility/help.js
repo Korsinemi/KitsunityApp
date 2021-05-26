@@ -33,7 +33,7 @@ module.exports = {
             `\n<a:heart_kitsunity_arrow:839285735621656636> Puedes obtener ayuda adicional en el [servidor de soporte](https://discord.com/invite/RjeHPJy2GC)`,
         ])
         return message.channel.send(embed);
-        } else if (args[0] === '2' || args[0].toUpperCase() === 'REACTION') {
+        } else if (args[0] === '2') {
             embed.setTitle(`Categoria Reacción <a:BlushNeko:834162248549007402>`)
                 .setDescription([
                 `<a:kitsunity_sparkling_star:839520700317302825> **Descripción:** Estos comandos muestran una reacción owo`,
@@ -82,6 +82,7 @@ module.exports = {
     
         } else if (args[0] === '5') {
             embed.setTitle(`Categoria Economia - NUEVA!!! <:NekoHugAttack:834162195167182855>`)
+                .setImage(`https://i.imgur.com/MNApAj0.gif`)
                 .setDescription([
                 `<a:kitsunity_sparkling_star:839520700317302825> **Descripción:** Estos comandos son para usar mi sistema de economia :P`,
                 `<a:kitsunity_sparkling_star:839520700317302825> **Comandos:**
@@ -160,16 +161,17 @@ module.exports = {
 
             if (!command) return message.reply(`Ese comando no existe, utiliza \`${ServerPrefix}help 0\` para ver mis comandos u.u`);
 
-            let reply = "**Description:** " + command.description + "\n";
+            let reply = "**Descripción:** " + command.description + "\n";
+            reply += "**Categoria:**" + command.catergory + "\n"
             reply += "**Cooldown:** " + command.cooldown + "\n";
-            reply += "**Aliases:** " + command.aliases + "\n";
-            reply += "\n**Usage:** \n" + ServerPrefix + command.name + " " + command.usage + "\n";
+            reply += "**Alias:** " + command.aliases + "\n";
+            reply += "\n**Uso:** \n" + ServerPrefix + command.name + " " + command.usage + "\n";
 
             const UsageEmbed = new Discord.MessageEmbed()
                 .setColor('RANDOM')
-                .setTitle('Command: ' + ServerPrefix + command.name)
+                .setTitle('Comando: ' + ServerPrefix + command.name)
                 .setDescription(reply)
-                .setFooter("Requested by " + message.author.tag)
+                .setFooter("Pedido por " + message.author.tag)
                 .setTimestamp();
 
             return message.channel.send(UsageEmbed);

@@ -3,13 +3,13 @@ const request = require('node-superfetch');
 
 module.exports = {
     name: 'qrcode',
-    description: 'Converts text to a QR Code.',
+    description: 'Genera un codigo QR de tu texto o link .w.',
     aliases: ['codeqr', 'createqr'],
-    usage: ' [text/url]',
+    usage: ' <Texto/URL>',
     cooldown: 2,
     args: -1,
-    catergory: 'Utility',
-    async execute(message, args, client) {
+    catergory: 'Utilidad',
+    async execute(client, message, args) {
         try {
             let text = args.join(" ");
             const { body } = await request
@@ -18,11 +18,11 @@ module.exports = {
 
             return message.channel.send({
                 embed: {
-                    title: "QR Code Machine",
+                    title: "Codigo QR",
                     image: {
                         url: 'attachment://qr-code.png',
                     },
-                    color: "#8B0000",
+                    color: "RANDOM",
                     footer: {
                         text: "Requested by " + message.author.tag,
                         icon_url: message.author.displayAvatarURL()
