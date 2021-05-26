@@ -29,7 +29,7 @@ module.exports = {
     const embedon = new Discord.MessageEmbed()
         .setTitle('📢・Nueva sugerencia')
         .setDescription('>w< Hay una nueva sugerencia para Kitsunity!!')
-        .setField('Servidor:', message.guild.name, true)
+        .addField('Servidor:', message.guild.name, true)
         .addField('Usuario:', message.author.tag, true)
         .addField('ID:', message.author.id, true)
         .addField('Sugerencia:', `\n\`\`\`${suggery}\`\`\``, false)
