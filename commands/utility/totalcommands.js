@@ -4,22 +4,23 @@ const db = require('../../util/Database.js');
 
 module.exports = {
     name: 'totalcommands',
-    description: 'Returns the total commands the bot has',
+    description: 'Muestra la cantidad de comandos y categorias del bot',
     aliases: ['totalcommand'],
     usage: '',
     cooldown: 2,
     args: 0,
     hidden: true,
-    catergory: 'Utility',
-    async execute(message, args, client) {
+    catergory: 'Utilidad',
+    async execute(client, message, args) {
         try {
             let commands = client.commands.array();
+            let categories = '7';
             let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
             let helpEmbed = new Discord.MessageEmbed()
-                .setTitle(`Total Commands`)
-                .setColor("#8B0000")
-                .setDescription(`The bot has a total of ${commands.length} commands!`)
-                .setFooter(`Please do ${ServerPrefix}help [command] for more information`);
+                .setTitle(`Comandos totales`)
+                .setColor("RANDOM")
+                .setDescription(`Kitsunity tiene un total de ${commands.length} comandos divididos en ${categories} categorias nwn!`)
+                .setFooter(`Utiliza ${ServerPrefix}help para mas información .w.`);
 
             return message.channel.send(helpEmbed);
         } catch (err) {

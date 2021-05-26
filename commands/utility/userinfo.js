@@ -1,20 +1,20 @@
 const Util = require('../../util/MitUtil.js');
 const statuses = {
   online: "Online",
-  idle: "Idle",
-  dnd: "Do Not Disturb",
-  offline: "Offline"
+  idle: "Alejado",
+  dnd: "No molestar",
+  offline: "Desconectado"
 };
 
 module.exports = {
   name: 'userinfo',
-  description: "Displays infomation about the user",
+  description: "Muestra informacion sobre un usuario .w.",
   aliases: ['ui', 'user'],
-  usage: ' [user - Optional]',
+  usage: ' [Usuario]',
   cooldown: 2,
   args: 0,
-  catergory: 'Utility',
-  async execute(message, args, client) {
+  catergory: 'Utilidad',
+  async execute(client, message, args) {
     try {
       let member = message.guild.member(message.author);
       if (message.mentions.users.first()) {
@@ -27,15 +27,15 @@ module.exports = {
       let DateNow = new Date();
       return message.channel.send({
         embed: {
-          title: "User Info",
-          color: "#8B0000",
+          title: `Información de ${member.user.username}`,
+          color: "RANDOM",
           thumbnail: {
             url: member.user.displayAvatarURL({
               size: 512
             }),
           },
           fields: [{
-            name: '• Name',
+            name: '• Nombre',
             value: member.user.tag,
             inline: true,
           },
@@ -45,17 +45,17 @@ module.exports = {
             inline: true,
           },
           {
-            name: '• Discord Join Date',
+            name: '• Fecha de ingreso a Discord',
             value: `${member.user.createdAt.toDateString()} ( ${days} days ago! )`,
             inline: true,
           },
           {
-            name: '• Server Join Date',
+            name: '• Fecha de ingreso al servidor',
             value: `${member.joinedAt.toDateString()} ( ${joinedDays} days ago! )`,
             inline: true,
           },
           {
-            name: '• Status',
+            name: '• Estatus',
             value: statuses[member.presence.status],
             inline: true,
           },
@@ -65,18 +65,18 @@ module.exports = {
             inline: true,
           },
           {
-            name: '• Highest Role',
+            name: '• Rol mas alto',
             value: member.roles.cache.size > 1 ? member.roles.highest.name : "None",
             inline: true,
           },
           {
-            name: '• Hoist Role',
+            name: '• Rol mas bajo',
             value: member.roles.hoist ? member.roles.hoist.name : "None",
             inline: true,
           }
           ],
           footer: {
-            text: "Requested by " + message.author.tag,
+            text: "Pedido por " + message.author.tag,
             icon_url: message.author.displayAvatarURL()
           },
           timestamp: new Date()
