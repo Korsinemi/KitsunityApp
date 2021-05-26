@@ -22,6 +22,7 @@ module.exports = {
             .setFooter(`Pedido por ${message.author.tag}`, message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
         if (args[0] === '1') {
         embed.setTitle(`Categoria Acción <a:NekoDance:834162269075931177>`)
+            .setImage('https://i.imgur.com/fSOg8Ra.gif')
             .setDescription([
             `<a:kitsunity_sparkling_star:839520700317302825> **Descripción:** Estos comandos muestran una acción nwn`,
             `<a:kitsunity_sparkling_star:839520700317302825> **Comandos:**
@@ -47,6 +48,7 @@ module.exports = {
             return message.channel.send(embed);
         } else if (args[0] === '3') {
             embed.setTitle(`Categoria Utilidad <:NekoSip:834162226700091432>`)
+                .setImage('https://i.imgur.com/Z1MdkLS.gif')
                 .setDescription([
                 `<a:kitsunity_sparkling_star:839520700317302825> **Descripción:** Estos comandos son para utilidades >w<`,
                 `<a:kitsunity_sparkling_star:839520700317302825> **Comandos:**
@@ -57,7 +59,6 @@ module.exports = {
             return message.channel.send(embed); 
         } else if (args[0] === '4') {
             embed.setTitle(`Categoria Entretenimiento <:NekoHugAttack:834162195167182855>`)
-                .setImage('https://i.imgur.com/STqiAX1.png')
                 .setDescription([
                 `<a:kitsunity_sparkling_star:839520700317302825> **Descripción:** Estos comandos son para pasar el rato :P`,
                 `<a:kitsunity_sparkling_star:839520700317302825> **Comandos:**
