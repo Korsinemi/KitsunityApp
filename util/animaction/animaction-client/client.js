@@ -3,6 +3,8 @@
 const dance = require("../functions/gifs/dance.json");
 const wag = require("../functions/gifs/wag.json");
 const sip = require("../functions/gifs/sip.json");
+const blush = require("../functions/gifs/blush.json");
+const shoot = require("../functions/gifs/shoot.json");
 // TEXTO .w.
 const catfacts = require("../functions/text/catfacts.json");
 const facts = require("../functions/text/facts.json");
@@ -16,6 +18,8 @@ const animaction = () => {
     dance: () => dance[mathRandom(dance.length)],
     wag: () => wag[mathRandom(wag.length)],
     sip: () => sip[mathRandom(sip.length)],
+    blush: () => blush[mathRandom(blush.length)],
+    shoot: () => shoot[mathRandom(shoot.length)],
     // TEXTO .w.
     catfacts: () => catfacts[mathRandom(catfacts.length)],
     facts: () => facts[mathRandom(facts.length)],

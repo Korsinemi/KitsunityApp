@@ -5,16 +5,16 @@ const fs = require('fs');
 
 module.exports = {
     name: 'restartcommands',
-    description: "[OWNER] Adds balance to the targeted user",
-    aliases: ['restartcommand', 'resetcommands', 'commandsreset', 'refreshcommands'],
+    description: "[OWNER] Actualiza los comandos",
+    aliases: ['restartcommand', 'resetcommands', 'commandsreset', 'refreshcommands', 'rcmd'],
     usage: '',
     cooldown: 2,
     args: 0,
-    catergory: 'Utility',
+    catergory: 'Utilidad [OWNER]',
     hidden: true,
-    async execute(message, args, client) {
+    async execute(client, message, args) {
         try {
-            if (message.author.id !== ownerid) return;
+            if (message.author.id !== ownerid) return message.channel.send(`Solo mi familia puede utilizar este comando u.u`);
 
             let rawdata = fs.readFileSync('./include/assets/json/game.json');
             let Game = JSON.parse(rawdata);
@@ -32,10 +32,10 @@ module.exports = {
 
             return message.channel.send({
                 embed: {
-                    title: "[Owner] Refreshed Commands",
-                    color: "#8B0000",
+                    title: "[Owner] Se han refrescado los comandos correctamente n.n!!!",
+                    color: "RED",
                     footer: {
-                        text: "Requested by " + message.author.tag,
+                        text: "Utilizado por " + message.author.tag,
                         icon_url: message.author.displayAvatarURL()
                     },
                     timestamp: new Date()
