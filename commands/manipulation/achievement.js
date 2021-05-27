@@ -18,8 +18,8 @@ module.exports = {
                 return message.reply("Como genero el logro??, prueba esto ``k=archievement 4,Logro obtenido,Ser la mejor``")
             }
             icon = typing[0];
-            yellow = typing[1].join("%20");
-            text = typing[2].join("%20");
+            yellow = typing[1];
+            text = typing[2];
             
 
             if (icon != 1 || icon != 2 || icon != 3 || icon != 4 || icon != 5 || icon != 6 || icon != 7 || icon != 8 || 
