@@ -21,7 +21,7 @@ module.exports = {
             inline: false,
           },
           {
-            name: '• Apodo',
+            name: '• Tag',
             value: member.user.discriminator,
             inline: false,
           },
@@ -35,7 +35,7 @@ module.exports = {
             url: member.user.displayAvatarURL(),
           },
           footer: {
-            text: "Requested by " + message.author.tag,
+            text: "Pedido por " + message.author.tag,
             icon_url: message.author.displayAvatarURL()
           },
           timestamp: new Date()

@@ -65,7 +65,7 @@ client.on('ready', () => {
     });
 
     for (let i = 0; i < GuildArray.length; i++) {
-        console.log(`Server: ${GuildArray[i].name} (id: ${GuildArray[i].id}). This guild has ${GuildArray[i].memberCount} members!`);
+        console.log(`Server: ${GuildArray[i].name} (id: ${GuildArray[i].id}). Este server tiene ${GuildArray[i].memberCount} miembros!`);
     }
 
     console.log("\n");
@@ -82,7 +82,7 @@ setInterval(async function () {
         type: "WATCHING",
       },
       {
-        activity: `kitsunity.glitch.me | Nya!!`,
+        activity: `kitsunity.glitch.me | k=help`,
         type: "LISTENING",
       },
       {
@@ -90,7 +90,7 @@ setInterval(async function () {
         type: "LISTENING",
       },
       {
-        activity: "la versión 1.6.0 🌺 | KitsuneCode#5011",
+        activity: "La versión 1.6.2 ✨ | k=help",
         type: "PLAYING",
       },
       {
@@ -169,7 +169,7 @@ client.on('message', async message => {
 
             if (!UserImmune) {
                 if (message.content.match(inviteRegex) || message.content.match(botInvRegex)) {
-                    message.reply("Por favor evita enviar links de invitaciona esteservidor >.<");
+                    message.reply("Por favor evita enviar links de invitaciona este servidor >.<");
                     return message.delete();
                 }
             }
