@@ -14,7 +14,7 @@ module.exports = {
         try {
             let icon, yellow, text;
             let typing = args.join(" ").split(",");
-            if (typing.length < 2) {
+            if (typing.length < 3) {
                 return message.reply("Como genero el logro??, prueba esto ``k=archievement 4,Logro obtenido,Ser la mejor``")
             }
             icon = typing[0];
@@ -26,11 +26,11 @@ module.exports = {
                 return message.reply("Ingresa un numero valido entre 1 y 40 >.<")
                 }
             
-            if (yellow.length() < 3 || yellow.length() > 20){
+            if (typing[1].length() < 3 || typing[1].length() > 20){
                 return message.reply('El texto debe tener mas de 3 caracteres y menos de 20 caracteres')
             }
 
-            if (text.length() < 3 || text.length() > 20){
+            if (typing[2].length() < 3 || typing[2].length() > 20){
                 return message.reply('El texto debe tener mas de 3 caracteres y menos de 20 caracteres')
             }
 
