@@ -42,7 +42,7 @@ module.exports = {
           },
           fields: [{
             name: '• Nombre',
-            value: member.tag,
+            value: member.user.tag,
             inline: false,
           },
           {

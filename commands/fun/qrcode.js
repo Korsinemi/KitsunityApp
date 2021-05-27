@@ -11,6 +11,7 @@ module.exports = {
     catergory: 'Entretenimiento',
     async execute(client, message, args) {
         try {
+            message.react('❇');
             let text = args.join(" ");
             const { body } = await request
                 .get('https://api.qrserver.com/v1/create-qr-code/')

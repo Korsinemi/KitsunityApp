@@ -1,3 +1,4 @@
+const { truncate } = require('fs');
 const Util = require('../../util/MitUtil.js');
 
 module.exports = {
@@ -13,18 +14,17 @@ module.exports = {
       let day = message.guild.createdAt.getDate(); // Gets day server was created
       let month = 1 + message.guild.createdAt.getMonth(); // Gets month server was created
       let year = message.guild.createdAt.getFullYear(); // Gets year server was created
-      let sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
-      let bots = message.guild.memberCount.bots;
-      let humans = message.guild.memberCount.humans;
+      let human = message.guild.memberCount - message.guild.members.bots;
+      let bot = message.guild.memberCount - message.guild.members.humans;
       return message.channel.send({
         embed: {
           title: "Información del servidor",
           color: "RANDOM",
           footer: {
-            text: `Fecha de creación del servidor • ${day}.${month}.${year}`
+            text: `Fecha de creación del servidor • ${day} - ${month} - ${year}`
           },
           thumbnail: {
-            url: sicon,
+            url: message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 })
           },
           fields: [
             {
@@ -54,13 +54,13 @@ module.exports = {
             },
             {
               name: '• Bots',
-              value: bots,
-              inline: false,
+              value: bot,
+              inline: true,
             },
             {
               name: '• Humanos',
-              value: humans,
-              inline: false,
+              value: human,
+              inline: true,
             },
             {
               name: '• Roles',
