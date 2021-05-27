@@ -12,7 +12,7 @@ module.exports = {
     catergory: 'Generadores',
     async execute(client, message, args) {
         try {
-            let icon, yellow, text;
+            let Icon, Yellow, Texts;
             let typing = args.join("%20").split(",");
             if (typing.length < 3) {
                 return message.reply("Como genero el logro??, prueba esto ``k=achievement 4,Logro obtenido,Ser la mejor``")
@@ -22,7 +22,7 @@ module.exports = {
             Texts = typing[2];
             
 
-            if (icon < 1 || icon > 40){
+            if (Icon < 1 || Icon > 40){
                 return message.reply("Ingresa un numero valido entre 1 y 40 >.<")
                 }
             
