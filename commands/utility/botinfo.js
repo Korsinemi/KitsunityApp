@@ -29,9 +29,7 @@ module.exports = {
               text: "Hecho con amor por KitsuneCode#5011"
             },          
             thumbnail: {
-              url: client.user.displayAvatarURL({
-                size: 800
-            }),
+              url: client.user.displayAvatarURL()
             },
             fields: [
               {
