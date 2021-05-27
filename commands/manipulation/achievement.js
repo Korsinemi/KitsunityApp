@@ -26,11 +26,11 @@ module.exports = {
                 return message.reply("Ingresa un numero valido entre 1 y 40 >.<")
                 }
             
-            if (typing[1].length() < 3 || typing[1].length() > 20){
+            if (typing[1].length < 3 || typing[1].length > 20){
                 return message.reply('El texto debe tener mas de 3 caracteres y menos de 20 caracteres')
             }
 
-            if (typing[2].length() < 3 || typing[2].length() > 20){
+            if (typing[2].length < 3 || typing[2].length > 20){
                 return message.reply('El texto debe tener mas de 3 caracteres y menos de 20 caracteres')
             }
 
