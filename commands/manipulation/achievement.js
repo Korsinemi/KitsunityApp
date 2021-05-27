@@ -22,11 +22,7 @@ module.exports = {
             text = typing[2];
             
 
-            if (icon != 1 || icon != 2 || icon != 3 || icon != 4 || icon != 5 || icon != 6 || icon != 7 || icon != 8 || 
-                icon != 9 || icon != 10 || icon != 11 ||icon != 12 || icon != 13 || icon != 14 || icon != 15 || icon != 16 ||
-                icon != 17 || icon != 18 || icon != 19 || icon != 20 || icon != 21 || icon != 22 || icon != 23 || icon != 24 || 
-                icon != 25 || icon != 26 || icon != 27 || icon != 28 || icon != 29 || icon != 30 || icon != 31 || icon != 32 || 
-                icon != 33 || icon != 34 || icon != 35 || icon != 36 || icon != 37 || icon != 38 || icon != 39 || icon != 40){
+            if (icon < 1 || icon > 40){
                 return message.reply("Ingresa un numero valido entre 1 y 40 >.<")
                 }
             
