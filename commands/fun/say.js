@@ -7,7 +7,7 @@ module.exports = {
   usage: ' <Texto>',
   cooldown: 2,
   args: -1,
-  catergory: 'Utilidad',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
     message.channel.send(message.content.split(' ').slice(1).join(' '));
     message.delete();

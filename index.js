@@ -49,6 +49,11 @@ for (let i = 0; i < ListOfFiles.length; i++) {
     }
 };
 
+client.on("reconnecting", () => {
+    console.log("Reconectando a Kitsunity nwn...")
+    client.setStatus('dnd');
+});
+
 client.on('ready', () => {
     console.log("Estoy conectada correctamente!!");
     console.log('Seción iniciada como ' + client.user.username + '.w.');
@@ -82,8 +87,8 @@ setInterval(async function () {
         type: "WATCHING",
       },
       {
-        activity: `kitsunity.glitch.me | k=help`,
-        type: "LISTENING",
+        activity: `kitsunity.glitch.me`,
+        type: "PLAYING",
       },
       {
         activity: `${client.commands.size} comandos y ${catg} categorias`,
@@ -91,7 +96,7 @@ setInterval(async function () {
       },
       {
         activity: "La versión 1.6.2 ✨ | k=help",
-        type: "PLAYING",
+        type: "LISTENING",
       },
       {
         activity: `${client.channels.cache.size} canales`,

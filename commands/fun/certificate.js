@@ -4,14 +4,15 @@ const moment = require('moment');
 
 module.exports = {
     name: 'certificate',
-    description: "Sends a certificate of excellence with the name and reason of your choice.",
+    description: "Genera un certificado con tu texto nwn",
     aliases: ['award', 'cert'],
-    usage: ' [name],[message]',
+    usage: ' <Nombre>,<Mensaje>',
     cooldown: 2,
     args: -1,
-    catergory: 'Memes/Images Manipulation',
-    async execute(message, args, client) {
+    catergory: 'Entretenimiento',
+    async execute(client, message, args) {
         try {
+            message.react('🥇')
             let Full = args.join(" ");
             let Split = Full.split(",");
 
@@ -19,12 +20,12 @@ module.exports = {
             let reason = Split[1];
 
             const base = await loadImage(`./include/assets/images/certificate.png`);
-            registerFont("./include/assets/fonts/oldengl.ttf", { family: 'Old English Text MT' });
+            registerFont("./include/assets/fonts/cattino.otf", { family: 'Cattino' });
 
             const canvas = createCanvas(base.width, base.height);
             const ctx = canvas.getContext('2d');
             ctx.drawImage(base, 0, 0);
-            ctx.font = '30px Old English Text MT';
+            ctx.font = '30px Cattino';
             ctx.textBaseline = 'top';
             ctx.textAlign = 'center';
             ctx.fillText(reason, 518, 273);
@@ -33,16 +34,11 @@ module.exports = {
 
             return message.channel.send({
                 embed: {
-                    title: "Certificate Machine",
+                    title: "Ten tu certificado!!!",
                     image: {
                         url: 'attachment://certificate.png',
                     },
-                    color: "#8B0000",
-                    footer: {
-                        text: "Requested by " + message.author.tag,
-                        icon_url: message.author.displayAvatarURL()
-                    },
-                    timestamp: new Date()
+                    color: "RANDOM"
                 },
                 files: [{
                     attachment: canvas.toBuffer(),

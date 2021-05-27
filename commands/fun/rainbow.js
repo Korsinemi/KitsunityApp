@@ -1,16 +1,14 @@
-const Util = require('../../util/MitUtil.js');
 const { createCanvas, loadImage } = require('canvas');
-const request = require('node-superfetch');
 
 module.exports = {
     name: 'rainbow',
-    description: 'Draws a rainbow over an image or a user\'s avatar.',
-    aliases: ['gayimage', 'gaypfp'],
-    usage: ' [user]',
+    description: 'Pone un arcoiris sobre el avatar de alguien UwU',
+    aliases: ['gayimage', 'gayfy'],
+    usage: ' [Usuario]',
     cooldown: 2,
     args: 0,
-    catergory: 'Memes/Images Manipulation',
-    async execute(message, args, client) {
+    catergory: 'Entretenimiento',
+    async execute(client, message, args) {
         try {
             let member = message.guild.member(message.author);
             if (message.mentions.users.first()) {
@@ -24,20 +22,15 @@ module.exports = {
             ctx.drawImage(data, 0, 0);
             ctx.drawImage(base, 0, 0, data.width, data.height);
             const attachment = canvas.toBuffer();
-            if (Buffer.byteLength(attachment) > 8e+6) return message.reply('Resulting image was above 8 MB.');
+            if (Buffer.byteLength(attachment) > 8e+6) return message.reply('La imagen final resulto mayor a 8MB >.<!!');
 
             return message.channel.send({
                 embed: {
-                    title: "Rainbow Machine",
+                    title: "Arcoiris!!!",
                     image: {
                         url: 'attachment://rainbow.png',
                     },
-                    color: "#8B0000",
-                    footer: {
-                        text: "Requested by " + message.author.tag,
-                        icon_url: message.author.displayAvatarURL()
-                    },
-                    timestamp: new Date()
+                    color: "RANDOM",
                 },
                 files: [{
                     attachment: canvas.toBuffer(),

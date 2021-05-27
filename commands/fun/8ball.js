@@ -5,10 +5,10 @@ module.exports = {
   name: '8ball',
   description: "Devuelve una respuesta a tu pregunta owo",
   aliases: ['ball', 'ask'],
-  usage: ' [pregunta]',
+  usage: ' <Pregunta>',
   cooldown: 2,
   args: -1,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       message.react('🎱');
       if (!args[1]) return message.reply("La pregunta es muy corta!, preguntame de nuevo >.<").then(m => m.delete(3000));

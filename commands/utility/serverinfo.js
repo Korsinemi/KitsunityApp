@@ -2,21 +2,21 @@ const Util = require('../../util/MitUtil.js');
 
 module.exports = {
   name: 'serverinfo',
-  description: 'Displays infomation about the server',
+  description: 'Muestra información de un servidor >w<',
   aliases: ['server'],
   usage: '',
   cooldown: 2,
   args: 0,
-  catergory: 'Utility',
+  catergory: 'Utilidad',
   async execute(message, args, client) {
     try {
       let sicon = message.guild.iconURL;
       return message.channel.send({
         embed: {
-          title: "Server Info",
-          color: "#8B0000",
+          title: "Información del servidor",
+          color: "RANDOM",
           footer: {
-            text: "Requested by " + message.author.tag,
+            text: "Pedido por " + message.author.tag,
             icon_url: message.author.displayAvatarURL()
           },
           thumbnail: {
@@ -24,32 +24,32 @@ module.exports = {
           },
           fields: [
             {
-              name: '• Name',
+              name: '• Nombre',
               value: message.guild.name,
-              inline: true,
+              inline: false,
             },
             {
               name: '• ID',
               value: message.guild.id,
-              inline: true,
+              inline: false,
             },
             {
-              name: '• Owner',
+              name: '• Dueñ@',
               value: message.guild.owner,
-              inline: true,
+              inline: false,
             },
             {
-              name: '• Region',
-              value: message.guild.region,
-              inline: true,
+              name: '• Región',
+              value: message.guild.region.toUpperCase(),
+              inline: false,
             },
             {
-              name: '• Members',
+              name: '• Miembros',
               value: message.guild.memberCount,
-              inline: true,
+              inline: false,
             },
             {
-              name: '• Created',
+              name: '• Fecha de creación',
               value: "```" + message.guild.createdAt + "```",
               inline: false,
             }

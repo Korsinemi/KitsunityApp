@@ -8,7 +8,7 @@ module.exports = {
     usage: ' <Texto/URL>',
     cooldown: 2,
     args: -1,
-    catergory: 'Utilidad',
+    catergory: 'Entretenimiento',
     async execute(client, message, args) {
         try {
             let text = args.join(" ");
@@ -24,8 +24,7 @@ module.exports = {
                     },
                     color: "RANDOM",
                     footer: {
-                        text: "Requested by " + message.author.tag,
-                        icon_url: message.author.displayAvatarURL()
+                        text: "Texto del QR: " + text
                     },
                     timestamp: new Date()
                 },

@@ -1,4 +1,5 @@
 const Util = require('../../util/MitUtil.js');
+const { ownerid } = require('../../config.json');
 const cpuStat = require("cpu-stat");
 const os = require('os');
 const db = require('../../util/Database.js');
@@ -19,7 +20,7 @@ module.exports = {
         if (err) {
           return console.log(err);
         }
-
+        let owner = ownerid.user.username;
         let Uptime = Util.msToTime(client.uptime);
         return message.channel.send({
           embed: {
@@ -27,8 +28,12 @@ module.exports = {
             description: args.join(" "),
             color: "RANDOM",
             footer: {
-              text: "Pedido por " + message.author.tag,
-              icon_url: message.author.displayAvatarURL()
+              text: "Hecho con amor por " + owner
+            },          
+            thumbnail: {
+              url: client.user.displayAvatarURL({
+                size: 800
+            }),
             },
             fields: [
               {
@@ -40,6 +45,11 @@ module.exports = {
                 name: '• Tiempo en linea',
                 value: `${Uptime}`,
                 inline: true,
+              },
+              {
+                name: '• Administradores',
+                value: `${owner}`,
+                inline: false,
               },
               {
                 name: '• Usuarios',
@@ -89,24 +99,34 @@ module.exports = {
               },
               */
               {
-                name: '• Version de NPM',
+                name: '• Versiónn de NPM',
                 value: `\`\`${process.version}\`\``,
-                inline: true,
+                inline: false,
               },
               {
-                name: '• Hosted En',
+                name: '• Clusters',
+                value: `💎 (27/48)`,
+                inline: false,
+              },
+              {
+                name: '• Host',
+                value: `✨ kitsunity.herokuapp - host://100627`,
+                inline: false,
+              },
+              {
+                name: '• Ubicación del Host',
                 value: `:flag_es: España`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Enlaces Utiles',
                 value: `[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity)`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Staff',
                 value: `Para ver los miembros usa \`\`k=credits\`\``,
-                inline: true,
+                inline: false,
               }
             ],
             timestamp: new Date()

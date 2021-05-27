@@ -1,4 +1,3 @@
-const Util = require('../../util/MitUtil.js');
 const statuses = {
   online: "Online",
   idle: "Alejado",
@@ -21,58 +20,59 @@ module.exports = {
         member = message.guild.member(message.mentions.users.first());
       }
 
+      const rolings = member.roles.name.join(', ');
       const days = Math.floor((new Date() - member.user.createdAt) / (1000 * 60 * 60 * 24));
       const joinedDays = Math.floor((new Date() - member.joinedAt) / (1000 * 60 * 60 * 24));
 
       let DateNow = new Date();
       return message.channel.send({
         embed: {
-          title: `Información de ${member.user.username}`,
+          title: `Información del usuario`,
           color: "RANDOM",
           thumbnail: {
             url: member.user.displayAvatarURL({
-              size: 512
+              size: 800
             }),
           },
           fields: [{
             name: '• Nombre',
             value: member.user.tag,
-            inline: true,
+            inline: false,
           },
           {
             name: '• ID',
             value: member.id,
-            inline: true,
+            inline: false,
           },
           {
             name: '• Fecha de ingreso a Discord',
-            value: `${member.user.createdAt.toDateString()} ( ${days} days ago! )`,
-            inline: true,
+            value: `${member.user.createdAt.toDateString()} (Hace ${days} dias!)`,
+            inline: false,
           },
           {
             name: '• Fecha de ingreso al servidor',
-            value: `${member.joinedAt.toDateString()} ( ${joinedDays} days ago! )`,
-            inline: true,
+            value: `${member.joinedAt.toDateString()} (Hace ${joinedDays} dias!)`,
+            inline: false,
           },
           {
             name: '• Estatus',
             value: statuses[member.presence.status],
-            inline: true,
+            inline: false,
           },
           {
             name: '• Bot',
-            value: member.user.bot ? "Yes" : "No",
-            inline: true,
+            value: member.user.bot ? "Si" : "No",
+            inline: false,
           },
           {
             name: '• Rol mas alto',
-            value: member.roles.cache.size > 1 ? member.roles.highest.name : "None",
-            inline: true,
+            value: member.roles.cache.size > 1 ? member.roles.highest.name : "Ninguno",
+            inline: false,
           },
           {
-            name: '• Rol mas bajo',
-            value: member.roles.hoist ? member.roles.hoist.name : "None",
-            inline: true,
+            name: '• Roles',
+            value: rolings ? member.roles.cache.size : "No tiene roles",
+            inline: false,
           }
           ],
           footer: {

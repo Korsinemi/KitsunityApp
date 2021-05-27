@@ -2,22 +2,22 @@ const Util = require('../../util/MitUtil.js');
 
 module.exports = {
     name: 'ping',
-    description: 'Pings the bot',
-    aliases: ['pong'],
+    description: 'Mide la latencia del bot .w.',
+    aliases: ['pong', 'latency'],
     usage: '',
     cooldown: 2,
     args: 0,
-    catergory: 'Utility',
-    async execute(message, args, client) {
+    catergory: 'Utilidad',
+    async execute(client, message, args) {
         try {
-            let botMsg = await message.channel.send("🏓 Pinging")
+            let botMsg = await message.channel.send("🏓 Pingeando")
             botMsg.edit({
                 embed: {
                     title: "📶 Ping",
                     description: [
-                        "**Server**: `" + (botMsg.createdAt - message.createdAt) + "ms`",
-                        "**WebSocket**: `" + client.ws.ping + "ms`",
-                        "**Uptime**: `" + Util.msToTime(client.uptime) + "`"
+                        "**📡 API**: `" + (botMsg.createdAt - message.createdAt) + "ms`",
+                        "**💻 WebSocket**: `" + client.ws.ping + "ms`",
+                        "**🕹 Tiempo online**: `" + Util.msToTime(client.uptime) + "`"
                     ].join("\n"),
                     color: "#8B0000",
                     footer: {

@@ -2,7 +2,7 @@ const Util = require('../../util/MitUtil.js');
 
 module.exports = {
   name: 'someone',
-  description: 'Elije un usuario aleatorio',
+  description: 'Elije un usuario aleatorio .w.',
   aliases: ['something', 'randompick', 'person'],
   usage: '',
   cooldown: 2,
@@ -17,7 +17,7 @@ module.exports = {
           color: "RANDOM",
           fields: [{
             name: '• Usuario',
-            value: member.user.username,
+            value: member.user.usernameta,
             inline: false,
           },
           {
@@ -33,12 +33,7 @@ module.exports = {
           ],
           thumbnail: {
             url: member.user.displayAvatarURL(),
-          },
-          footer: {
-            text: "Pedido por " + message.author.tag,
-            icon_url: message.author.displayAvatarURL()
-          },
-          timestamp: new Date()
+          }
         }
       });
     }
