@@ -29,18 +29,18 @@ module.exports = {
               text: "Hecho con amor por KitsuneCode#5011"
             },          
             thumbnail: {
-              url: client.user.displayAvatarURL()
+              url: client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
             },
             fields: [
               {
                 name: '• Uso de memoria',
                 value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Tiempo en linea',
                 value: `${Uptime}`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Administradores',
@@ -49,23 +49,23 @@ module.exports = {
               },
               {
                 name: '• Usuarios',
-                value: `${client.users.cache.size * 4}`,
-                inline: true,
+                value: `${client.users.cache.size}`,
+                inline: false,
               },
               {
                 name: '• Servidores',
                 value: `${client.guilds.cache.size}`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Canales',
                 value: `${client.channels.cache.size}`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Comandos Usados',
                 value: `${TotalCommands}`,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• CPU',
@@ -75,17 +75,17 @@ module.exports = {
               {
                 name: '• Uso de CPU',
                 value: `\`${percent.toFixed(2)}%\``,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Arquitectura',
                 value: `\`${os.arch()}\``,
-                inline: true,
+                inline: false,
               },
               {
                 name: '• Plataforma',
                 value: `\`\`${os.platform()}\`\``,
-                inline: true,
+                inline: false,
               },
               /*
               {

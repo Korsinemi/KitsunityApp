@@ -38,9 +38,7 @@ module.exports = {
           title: `Información del usuario`,
           color: "RANDOM",
           thumbnail: {
-            url: member.user.displayAvatarURL({
-              size: 800
-            }),
+            url: member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }),
           },
           fields: [{
             name: '• Nombre',
@@ -87,11 +85,13 @@ module.exports = {
             value: member.roles.cache.size > 1 ? member.roles.highest.name : "Ninguno",
             inline: false,
           },
+          /*
           {
             name: '• Roles',
             value: member.roles.map(roles => `${roles}`).join(' | ') ? null : "No tiene roles",
             inline: false,
           }
+          */
           ],
           footer: {
             text: "Pedido por " + message.author.tag,
