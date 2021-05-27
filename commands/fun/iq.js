@@ -6,10 +6,10 @@ module.exports = {
   name: 'iq',
   description: "Mira cual es tu nivel de coeficiete intelectual .w.",
   aliases: ['aptitude'],
-  usage: ' [usuario - Opcional]',
+  usage: ' [Usuario]',
   cooldown: 2,
   args: 0,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       var options = { min: 20, max: 170, integer: true }
       const RandomIQ = randomnumber(options);

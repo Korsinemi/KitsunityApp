@@ -6,10 +6,10 @@ module.exports = {
   name: 'simp',
   description: "Intenta adiviar que tan simp es alguien .w.",
   aliases: ['simprate'],
-  usage: ' [usuario - Opcional]',
+  usage: ' [Usuario]',
   cooldown: 2,
   args: 0,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       var options = { min: 0, max: 100, integer: true }
       let SimpRate = randomnumber(options) + "%";

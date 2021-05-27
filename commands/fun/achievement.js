@@ -9,6 +9,9 @@ module.exports = {
     args: -1,
     catergory: 'Entretenimiento',
     async execute(client, message, args) {
+        message.react('⚙')
+        return message.channel.send('🛠 | Comando en mantenimiento nwn')
+        /*
         try {
             message.react('🏆');
             let typing = args.join("%20").split(",");
@@ -44,5 +47,6 @@ module.exports = {
             console.log(err);
             return message.reply(`Oh no, an error occurred. Try again later!`);
 		}
+        */
     }
 };

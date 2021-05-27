@@ -5,10 +5,10 @@ module.exports = {
   name: 'owo',
   description: "Owofica tu texto owo",
   aliases: ['owofy'],
-  usage: ' [mensaje]',
+  usage: ' <Mensaje>',
   cooldown: 2,
   args: -1,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       let OwOText = args.join(" ");
       let Message = `${owo(OwOText)}`;

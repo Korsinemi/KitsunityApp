@@ -15,10 +15,10 @@ module.exports = {
   name: 'leet',
   description: 'Convierte tu texto en numeros',
   aliases: ['leetspeak', 'leetspeech', 'l33t'],
-  usage: ' [mensaje]',
+  usage: ' <Mensaje>',
   cooldown: 2,
   args: -1,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       message.react('<a:kitsunity_numberizing:841438942011719687>')
       let content = args.join(" ");

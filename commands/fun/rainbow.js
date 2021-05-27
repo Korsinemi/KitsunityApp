@@ -10,6 +10,7 @@ module.exports = {
     catergory: 'Entretenimiento',
     async execute(client, message, args) {
         try {
+            message.react('🌈');
             let member = message.guild.member(message.author);
             if (message.mentions.users.first()) {
                 member = message.guild.member(message.mentions.users.first());

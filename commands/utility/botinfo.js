@@ -1,5 +1,4 @@
 const Util = require('../../util/MitUtil.js');
-const { ownerid } = require('../../config.json');
 const cpuStat = require("cpu-stat");
 const os = require('os');
 const db = require('../../util/Database.js');
@@ -8,7 +7,7 @@ const { version } = require("discord.js");
 module.exports = {
   name: 'botinfo',
   description: 'Muestra información sobre mi .w.',
-  aliases: ['info', 'bot', 'uptime'],
+  aliases: ['info', 'bot', 'uptime', 'kitsunity'],
   usage: '',
   cooldown: 2,
   args: 0,
@@ -20,7 +19,6 @@ module.exports = {
         if (err) {
           return console.log(err);
         }
-        let owner = ownerid.user.username;
         let Uptime = Util.msToTime(client.uptime);
         return message.channel.send({
           embed: {
@@ -28,7 +26,7 @@ module.exports = {
             description: args.join(" "),
             color: "RANDOM",
             footer: {
-              text: "Hecho con amor por " + owner
+              text: "Hecho con amor por KitsuneCode#5011"
             },          
             thumbnail: {
               url: client.user.displayAvatarURL({
@@ -48,7 +46,7 @@ module.exports = {
               },
               {
                 name: '• Administradores',
-                value: `${owner}`,
+                value: `KitsuneCode#5011`,
                 inline: false,
               },
               {

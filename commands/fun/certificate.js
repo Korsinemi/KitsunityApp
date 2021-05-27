@@ -28,8 +28,8 @@ module.exports = {
             ctx.font = '30px Cattino';
             ctx.textBaseline = 'top';
             ctx.textAlign = 'center';
-            ctx.fillText(reason, 518, 273);
-            ctx.fillText(name, 518, 419);
+            ctx.fillText(name, 518, 273);
+            ctx.fillText(reason, 518, 419);
             ctx.fillText(moment().format('MM/DD/YYYY'), 309, 503);
 
             return message.channel.send({

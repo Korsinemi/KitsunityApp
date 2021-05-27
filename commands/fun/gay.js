@@ -6,10 +6,10 @@ module.exports = {
   name: 'gay',
   description: "Mira que tan gay es alguien .w.",
   aliases: ['gayrate', 'howgay'],
-  usage: ' [usuario - Opcional]',
+  usage: ' [Usuario]',
   cooldown: 2,
   args: 0,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
       var options = { min: 0, max: 100, integer: true }
       let GayRate = randomnumber(options) + "% gay :rainbow_flag:";

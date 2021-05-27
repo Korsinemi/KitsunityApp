@@ -8,7 +8,7 @@ module.exports = {
   cooldown: 2,
   args: 0,
   catergory: 'Utilidad',
-  async execute(message, args, client) {
+  async execute(client, message, args) {
     try {
       let sicon = message.guild.iconURL;
       return message.channel.send({

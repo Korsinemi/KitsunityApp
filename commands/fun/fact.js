@@ -9,7 +9,7 @@ module.exports = {
   usage: '',
   cooldown: 2,
   args: 0,
-  catergory: 'Diversión',
+  catergory: 'Entretenimiento',
   async execute(client, message, args) {
         message.react('💎');
         const fact = animaction.facts();

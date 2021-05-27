@@ -4,6 +4,16 @@ const statuses = {
   dnd: "No molestar",
   offline: "Desconectado"
 };
+/*
+const ptype = {
+  LISTENING: "Escuchando",
+  WATCHING: "Viendo",
+  COMPETING: "Compitiendo en",
+  PLAYING: "Jugando a",
+  STREAMING: "Transmitiendo en Twitch"
+};
+*/
+
 
 module.exports = {
   name: 'userinfo',
@@ -19,8 +29,6 @@ module.exports = {
       if (message.mentions.users.first()) {
         member = message.guild.member(message.mentions.users.first());
       }
-
-      const rolings = member.roles.name.join(', ');
       const days = Math.floor((new Date() - member.user.createdAt) / (1000 * 60 * 60 * 24));
       const joinedDays = Math.floor((new Date() - member.joinedAt) / (1000 * 60 * 60 * 24));
 
@@ -36,7 +44,12 @@ module.exports = {
           },
           fields: [{
             name: '• Nombre',
-            value: member.user.tag,
+            value: member.tag,
+            inline: false,
+          },
+          {
+            name: '• Apodo',
+            value: `${member.nickname !== null ? `${member.nickname}` : 'No tiene'}`,
             inline: false,
           },
           {
@@ -60,6 +73,11 @@ module.exports = {
             inline: false,
           },
           {
+            name: '• Presencia',
+            value: `${member.presence.game ? member.presence.game.name : 'No tiene actividad'}`,
+            inline: false,
+          },
+          {
             name: '• Bot',
             value: member.user.bot ? "Si" : "No",
             inline: false,
@@ -71,7 +89,7 @@ module.exports = {
           },
           {
             name: '• Roles',
-            value: rolings ? member.roles.cache.size : "No tiene roles",
+            value: member.roles.map(roles => `${roles}`).join(' | ') ? null : "No tiene roles",
             inline: false,
           }
           ],
