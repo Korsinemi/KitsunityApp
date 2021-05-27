@@ -10,7 +10,7 @@ module.exports = {
     cooldown: 2,
     args: -1,
     catergory: 'Generadores',
-    async execute(message, args, client) {
+    async execute(client, message, args) {
         try {
             let icon, yellow, text;
             let typing = args.join(" ").split(",");
