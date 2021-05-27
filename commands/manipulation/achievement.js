@@ -13,13 +13,13 @@ module.exports = {
     async execute(client, message, args) {
         try {
             let icon, yellow, text;
-            let typing = args.join(" ").split(",");
+            let typing = args.join("%20").split(",");
             if (typing.length < 3) {
-                return message.reply("Como genero el logro??, prueba esto ``k=archievement 4,Logro obtenido,Ser la mejor``")
+                return message.reply("Como genero el logro??, prueba esto ``k=achievement 4,Logro obtenido,Ser la mejor``")
             }
-            icon = typing[0];
-            yellow = typing[1];
-            text = typing[2];
+            Icon = typing[0];
+            Yellow = typing[1];
+            Texts = typing[2];
             
 
             if (icon < 1 || icon > 40){
@@ -38,7 +38,7 @@ module.exports = {
                 embed: {
                     title: "Logro obtenido!!!",
                     image: {
-                        url: `http://mcgen.herokuapp.com/a.php?i=${icon}&h=${yellow}&t=${text}`
+                        url: `http://mcgen.herokuapp.com/a.php?i=${Icon}&h=${Yellow}&t=${Texts}`
                     },
                     color: "RANDOM"
                 }
