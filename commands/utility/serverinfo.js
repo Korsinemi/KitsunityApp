@@ -86,20 +86,17 @@ module.exports = {
     const highrole = message.guild.roles.cache.size >= 1 ? `${message.guild.roles.highest.name}` : "Ninguno";
     const boostdata = message.guild.premiumSubscriptionCount >= 1 ? `Hay ${message.guild.premiumSubscriptionCount} Boost` : `No tiene`;
     const isverify = message.guild.verified ? 'Servidor verificado' : `Servidor sin verificación`;
-    const channeldata = message.guild.channel.filter((c) => c.type !== "category").size;
-    const dividersdata = message.guild.channel.filter((c) => c.type === "category").size;
-    const voicedata = message.guild.channel.filter((c) => c.type === "voice").size;
-    const textdata = message.guild.channel.filter((c) => c.type === "text").size;
+    const channeldata = message.guild.channel.filter(c => c.type !== "category").size;
+    const dividersdata = message.guild.channel.filter(c => c.type === "category").size;
+    const voicedata = message.guild.channel.filter(c => c.type === "voice").size;
+    const textdata = message.guild.channel.filter(c => c.type === "text").size;
     /* Nuevo!! */
-    const stagedata =  message.guild.channel.filter((c) => c.type === "stage").size;
+    const stagedata =  message.guild.channel.filter(c => c.type === "stage").size;
     /* Nuevo!! */
     const sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
     const regiondata = regions[message.guild.region];
     const seguritydata = verflevel[message.guild.verificationLevel];
-    const premium = 'No es premium'
-    if (message.guild.id === premiumsv){
-      const premium = '<a:Kitsunity_PremiumLightt:> Es KitsunityLight Server (Premium)'
-    }
+    const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
     /*
     let day = message.guild.createdAt.getDate(); // Gets day server was created
     let month = 1 + message.guild.createdAt.getMonth(); // Gets month server was created
