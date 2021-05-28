@@ -4,14 +4,11 @@ module.exports = {
     name: 'achievement',
     description: `Logro obtenido!!`,
     aliases: ['minecrafttext'],
-    usage: ' <Icono|1-40>,<Texto 1>,<Texto 2>',
+    usage: ' <Icono|1-39>,<Texto 1>,<Texto 2>',
     cooldown: 2,
     args: -1,
     catergory: 'Entretenimiento',
     async execute(client, message, args) {
-        message.react('⚙')
-        return message.channel.send('🛠 | Comando en mantenimiento nwn')
-        /*
         try {
             message.react('🏆');
             let typing = args.join("%20").split(",");
@@ -22,8 +19,8 @@ module.exports = {
             Yellow = typing[1];
             Texts = typing[2];
             
-            if (Icon < 1 || Icon > 40){
-                return message.reply("ingresa un numero valido entre 1 y 40 >.<")
+            if (Icon < 1 || Icon > 39){
+                return message.reply("ingresa un numero valido entre 1 y 39 >.<")
             }
             
             if (typing[1].length < 3 || typing[1].length > 25){
@@ -38,7 +35,7 @@ module.exports = {
                 embed: {
                     title: "Logro obtenido!!!",
                     image: {
-                        url: `http://mcgen.herokuapp.com/a.php?i=${Icon}&h=${Yellow}&t=${Texts}`
+                        url: `https://minecraftskinstealer.com/achievement/${Icon}/${Yellow}/${Texts}`
                     },
                     color: "RANDOM"
                 }
@@ -47,6 +44,5 @@ module.exports = {
             console.log(err);
             return message.reply(`Oh no, an error occurred. Try again later!`);
 		}
-        */
     }
 };
