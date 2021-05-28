@@ -1,3 +1,4 @@
+const premiumuser = require('../../config.json');
 const statuses = {
   online: "Online",
   idle: "Alejado",
@@ -42,7 +43,7 @@ module.exports = {
           },
           fields: [{
             name: '• Nombre',
-            value: member.user.tag,
+            value: member.user.tag + ` | <@${member.id}>`,
             inline: false,
           },
           {
