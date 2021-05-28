@@ -9,23 +9,23 @@ module.exports = {
     args: 0,
     catergory: 'Utilidad',
     async execute(client, message, args) {
-        try{
+        try {
             let Emojis = "";
             let EmojisAnimated = "";
             let EmojiCount = 0;
             let Animated = 0;
             let OverallEmojis = 0;
             function Emoji(id){
-                return bot.emojis.cache.get(id).toString()
+                return client.emojis.cache.get(id).toString()
             }
             message.guild.emojis.cache.forEach(emoji => {
                 OverallEmojis++;
-                if (emoji.animated) {
+                if (emoji.animated){
                     Animated++;
-                    EmojisAnimated+=Emoji(emoji.id)
+                    EmojisAnimated += Emoji(emoji.id)
                 } else {
                     EmojiCount++;
-                    Emojis+=Emoji(emoji.id)
+                    Emojis += Emoji(emoji.id)
                 }
             })
             const embed1 = new Discord.MessageEmbed()
@@ -38,9 +38,8 @@ module.exports = {
               .setColor('RANDOM')
             message.channel.send(embed1);
             message.channel.send(embed2);
-            }catch(err){
+            } catch(err){
                 return message.channel.send('Oops! Algo a salido mal, intenta mas tarde >.<')
-
             }
         }
 };

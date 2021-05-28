@@ -86,12 +86,12 @@ module.exports = {
     const highrole = message.guild.roles.cache.size >= 1 ? `${message.guild.roles.highest.name}` : "Ninguno";
     const boostdata = message.guild.premiumSubscriptionCount >= 1 ? `Hay ${message.guild.premiumSubscriptionCount} Boost` : `No tiene`;
     const isverify = message.guild.verified ? 'Servidor verificado' : `Servidor sin verificación`;
-    const channeldata = message.guild.channel.cache.filter((c) => c.type !== "category").size;
-    const dividersdata = message.guild.channel.cache.filter((c) => c.type === "category").size;
-    const voicedata = message.guild.channel.cache.filter((c) => c.type === "voice").size;
-    const textdata = message.guild.channel.cache.filter((c) => c.type === "text").size;
+    const channeldata = message.guild.channel.filter((c) => c.type !== "category").size;
+    const dividersdata = message.guild.channel.filter((c) => c.type === "category").size;
+    const voicedata = message.guild.channel.filter((c) => c.type === "voice").size;
+    const textdata = message.guild.channel.filter((c) => c.type === "text").size;
     /* Nuevo!! */
-    const stagedata =  message.guild.channel.cache.filter((c) => c.type === "stage").size;
+    const stagedata =  message.guild.channel.filter((c) => c.type === "stage").size;
     /* Nuevo!! */
     const sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
     const regiondata = regions[message.guild.region];
