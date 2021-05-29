@@ -11,7 +11,7 @@ module.exports = {
     async execute(client, message, args) {
         try {
             message.react('🏆');
-            let typing = args.join("%20").split(",");
+            let typing = args.join("+").split(",");
             if (typing.length < 3) {
                 return message.reply("Como genero el logro??, prueba esto ``k=achievement 4,Logro obtenido,Ser la mejor``")
             }
