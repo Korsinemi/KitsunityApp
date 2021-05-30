@@ -77,7 +77,7 @@ module.exports = {
         },
         {
             name: '• Cumpleaños',
-            value: `🎂|${kitsunitydate} ${checkDays(client.user.createdAt)}`,
+            value: `<:Kitsunity_Pastel:848438243191816242> | ${kitsunitydate} ${checkDays(client.user.createdAt)}`,
             inline: false
         },
         {

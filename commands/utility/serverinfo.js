@@ -55,19 +55,19 @@ module.exports = {
         return "Hace cinco meses | " + days + (days == 1 ? " dia" : " dias");
       } else if (days >= 180 && days < 209){
         return "Hace seis meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 210){
+      } else if (days >= 210 && days < 239){
         return "Hace siete meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 240){
+      } else if (days >= 240 && days < 269){
         return "Hace ocho meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 270){
+      } else if (days >= 270 && days < 299){
         return "Hace nueve meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 300){
+      } else if (days >= 300 && days < 329){
         return "Hace diez meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 330){
+      } else if (days >= 330 && days < 364){
         return "Hace ocho meses | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 365){
+      } else if (days >= 365 && days < 729){
         return "Hace un año | " + days + (days == 1 ? " dia" : " dias");
-      } else if (days >= 730){
+      } else if (days >= 730 && days < 1094){
         return "Hace dos años | " + days + (days == 1 ? " dia" : " dias");
       } else if (days >= 1095) {
       return "Hace tres años o mas | " + days + (days == 1 ? " dia" : " dias");
@@ -106,15 +106,15 @@ module.exports = {
            .setAuthor(message.guild.name, sicon)
            .setColor("RANDOM")
            .setThumbnail(sicon)
-           .addField("• Dueñ@", `<:Kitsunity_OwnerCorona:847588726486073394> ${message.guild.owner} | ${message.guild.owner.user.tag}`, true)
+           .addField("• Dueñ@", `<:Kitsunity_OwnerCorona:847588726486073394> | ${message.guild.owner}`, true)
            .addField("• ID", `🆔 | ${message.guild.id}`, true)
            .addField("• Fecha de creación: ", `📅 | ${datedata} (${checkDays(message.channel.guild.createdAt)})`,false)
            .addField("• Miembros", `<:Kitsunity_MiembrosIcono:847620497017798707> | Totales: ${membersdata}\n<:Kitsunity_OnlineIcono:847620859875164230> | Online: ${uonline}\n<:Kitsunity_BotIcono:847620741112922142> | Bots: ${ubot}\n👫 | Humanos: ${uhumnas}`, true)
-           .addField("• Info", `🙂 | Emojis: ${emojidata}\n<:Kitsunity_Roles:848438058030333952> | Roles: ${roledata}\n🔰 | Rol mas alto: @${highrole}\n<:Kitsunity_Boost:848553562983759882> | Boost: ${boostdata}`, false)
-           .addField("• Canales", `🌐 | Total: ${channeldata}\n<:Kitsunity_CategoriasCanal:848438137474515014> | Categorias: ${dividersdata}\n<:Kitsunity_TextoIcono:847643715790438440> | Texto: ${textdata}\n<:Kitsunity_VozIcono:847643715928588359> | Voz: ${voicedata}\n<:Kitsunity_StageIcono:847643715845357598> | Stage: ${stagedata}`, true)
-           .addField("• Seguridad", `<:Kitsunity_Verificado:848555172661559296> | Verificación: ${isverify}\n<:Kitsunity_VerificacionTipo:848555700368179240> | Nivel: ${seguritydata}\n🌎 | Región: ${regiondata}`, true)
-    const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
-           embed.addField("• Premium", `<a:Kitsunity_PremiumLightt:847643557502124062> | Server Premium: ${premium}`, false)
+           .addField("• Info", `🙂 | Emojis: ${emojidata}\n<:Kitsunity_Roles:848438058030333952> | Roles: ${roledata}\n🔰 | Rol mas alto: @${highrole}\n<:Kitsunity_Boost:848553562983759882> | Boost: ${boostdata}`, true)
+           .addField("• Canales", `🌐 | Total: ${channeldata}\n<:Kitsunity_CategoriasCanal:848438137474515014> | Categorias: ${dividersdata}\n<:Kitsunity_TextoIcono:847643715790438440> | Texto: ${textdata}\n<:Kitsunity_VozIcono:847643715928588359> | Voz: ${voicedata}\n<:Kitsunity_StageIcono:847643715845357598> | Stage: ${stagedata}`, false)
+           .addField("• Seguridad", `<:Kitsunity_Verificado:848555172661559296> | Verificación: ${isverify}\n<:Kitsunity_VerificacionTipo:848555700368179240> | Nivel: ${seguritydata}\n<:Kitunity_Mapa:848561794867658812> | Región: ${regiondata}`, true)
+    /* const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
+           embed.addField("• Premium", `<a:Kitsunity_PremiumLightt:847643557502124062> | Server Premium: ${premium}`, false)*/
       return message.channel.send(embed);
   }
 };
