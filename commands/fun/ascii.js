@@ -28,8 +28,15 @@ module.exports = {
                 Font === 'Standard'
             }
 
-            figlet.text(`${Typeface}`, {font: `${Font}`}, (err, rendered) => {
-                callback(err, "```" + rendered + "```");
+            figlet(`${Typeface}`, {font: `${Font}`}, (err, rendered) => {
+                if (err) {
+                    console.log('k...');
+                    console.dir(err);
+                    return;
+                }
+
+                message.react('🌟'),
+                message.channel.send(`${rendered}`, {code: 'AsciiArt'});
               });
         } catch (err) {
             console.log(err);
