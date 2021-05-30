@@ -93,7 +93,7 @@ module.exports = {
     /* Nuevo!! */
     const stagedata =  message.guild.channels.cache.filter(c => c.type === "stage").size;
     /* Nuevo!! */
-    const sicon = message.guild.iconURL({ dynamic: true });
+    const sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
     const regiondata = regions[message.guild.region];
     const seguritydata = verflevel[message.guild.verificationLevel];
     const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
@@ -105,7 +105,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
            .setAuthor(message.guild.name, sicon)
            .setColor("RANDOM")
-           .setThumbnail(message.guild.iconURL())
+           .setThumbnail(sicon)
            .addField("• Dueñ@", `<:Kitsunity_OwnerCorona:847588726486073394> ${message.guild.owner} | ${message.guild.owner.user.tag}`, true)
            .addField("• ID", `🆔|${message.guild.id}`, true)
            .addField("• Fecha de creación: ", `📅|${datedata} (${checkDays(message.channel.guild.createdAt)})`,false)
