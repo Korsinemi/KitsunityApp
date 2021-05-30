@@ -9,7 +9,7 @@ module.exports = {
     cooldown: 2,
     args: 0,
     catergory: 'NSFW',
-    async execute(message, args, client) {
+    async execute(client, message, args) {
         try {
             if (message.channel.nsfw == true) {
                 superagent.get('https://nekobot.xyz/api/image').query({ type: 'anal' }).end((err, response) => {

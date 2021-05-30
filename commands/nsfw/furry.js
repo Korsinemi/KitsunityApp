@@ -16,7 +16,7 @@ module.exports = {
     cooldown: 2,
     args: 0,
     catergory: 'NSFW',
-    async execute(message, args, client) {
+    async execute(client, message, args) {
         try {
             Util.subredditimage(subreddit, message);
         } catch (err) {
