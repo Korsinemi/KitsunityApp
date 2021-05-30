@@ -15,7 +15,7 @@ module.exports = {
             let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
             let typing = args.join(" ").split(",");
             if (typing.length < 1) {
-                return message.reply(`Como genero el texto en ascii??, prueba esto ``${ServerPrefix}ascii Kitsunity,5lineoblique``, para ver las fuentes validas usa el comando ``${ServerPrefix}scripts```)
+                return message.reply(`Como genero el texto en ascii??, prueba esto ``${ServerPrefix}ascii Kitsunity,Acrobatic``, para ver las fuentes validas usa el comando ``${ServerPrefix}fonts``, estas deben ser puestas con la primera letra en mayuscula, ademas en caso de no poner ninguna fuente escribe ``,```)
             }
             Typeface = typing[0];
             Font = typing[1];
