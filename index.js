@@ -112,6 +112,10 @@ setInterval(async function () {
          type: random.type,
       });
     }, 15000);
+
+    setInterval(() => {
+        Util.refreshsubreddit();
+    }, 600000);
 });
 
     /*
@@ -127,11 +131,6 @@ setInterval(async function () {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
         client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
     }, 10000);
-
-    setInterval(() => {
-        Util.refreshsubreddit();
-    }, 600000);
-});
 */
 
 client.on('message', async message => {
