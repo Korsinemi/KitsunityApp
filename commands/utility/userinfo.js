@@ -75,7 +75,9 @@ module.exports = {
       const itsbot = member.user.bot ? "Si" : "No";
       const servername = message.guild.name;
       const rolemax = member.roles.cache.size > 1 ? member.roles.highest : "Ninguno u.u";
+      /*
       const rolemin = member.roles.cache.size > 1 ? member.roles.lower : "Ninguno u.u";
+      */
       const roles = member.roles.cache.size > 1 ? member.roles.cache.sort((a, b) => a.position - b.position).map(r => `${r}`).join(' **|** ') : 'No hay roles aqui .w.';
       const embed = new Discord.MessageEmbed()
       .setAuthor(`Información de ${member.user.tag}`, usericon)
@@ -84,7 +86,7 @@ module.exports = {
       .addField(`• Información general`, `**<a:kitsunity_sparkling_star:839520700317302825> | Nick:** ${nick}\n**<a:kitsunity_sparkling_star:839520700317302825> | ID:** ${member.id}\n**<a:kitsunity_sparkling_star:839520700317302825> | Bot:** ${itsbot}\n**<a:kitsunity_sparkling_star:839520700317302825> | Estatus:** ${statuses[member.presence.status]}`, true)
       .addField(`• Fecha de ingreso a Discord`, `**<a:kitsunity_sparkling_star:839520700317302825> |** ${days} (${checkDays(member.user.createdAt)})`, false)
       .addField(`• Fecha de ingreso a ${servername}`, `**<a:kitsunity_sparkling_star:839520700317302825> |** ${joinedDays} (${checkDays(member.joinedAt)})`, false)
-      .addField(`• Información adicional`, `**<a:kitsunity_sparkling_star:839520700317302825> | Rol mas alto:** ${rolemax}\n**<a:kitsunity_sparkling_star:839520700317302825> | Rol mas bajo:** ${rolemin}\n**<a:kitsunity_sparkling_star:839520700317302825> | Roles:** ${roles}`, false)
+      .addField(`• Información adicional`, `**<a:kitsunity_sparkling_star:839520700317302825> | Rol mas alto:** ${rolemax}\n**<a:kitsunity_sparkling_star:839520700317302825> | Roles:** ${roles}`, false)
       return message.channel.send(embed);
   }
 };
