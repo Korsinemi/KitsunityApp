@@ -93,7 +93,7 @@ module.exports = {
     /* Nuevo!! */
     const stagedata =  message.guild.channels.cache.filter(c => c.type === "stage").size;
     /* Nuevo!! */
-    const sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
+    const sicon = message.guild.iconURL({ dynamic: true });
     const regiondata = regions[message.guild.region];
     const seguritydata = verflevel[message.guild.verificationLevel];
     const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
@@ -106,46 +106,14 @@ module.exports = {
            .setAuthor(message.guild.name, sicon)
            .setColor("RANDOM")
            .setThumbnail(message.guild.iconURL())
-           .addFields(
-              {
-                  name: "• Dueñ@",
-                  value: `<:Kitsunity_OwnerCorona:847588726486073394> ${message.guild.owner} | ${message.guild.owner.user.tag}`,
-                  inline: true
-              },
-              {
-                name: "• ID",
-                value: `🆔|${message.guild.id}`,
-                inline: true
-              },
-              {
-                name: "• Fecha de creación: ",
-                value: `📅|${datedata} (${checkDays(message.channel.guild.createdAt)})`,
-                inline: false
-              },
-              {
-                  name: "• Miembros",
-                  value: `<:Kitsunity_MiembrosIcono:847620497017798707>|Totales: ${membersdata}\n<:Kitsunity_OnlineIcono:847620859875164230>|Online: ${uonline}\n<:Kitsunity_BotIcono:847620741112922142>|Bots: ${ubot}\n👫|Humanos: ${uhumnas}`,
-                  inline: false
-              },
-              {
-                name: "• Info",
-                value: `🙂|Emojis: ${emojidata}\n✨|Roles: ${roledata}\n🔰|Rol mas alto: <@${highrole}>\n<:Kitsunity_BoostIcono:>|Boost: ${boostdata}`,
-                inline: true
-              },
-              {
-                name: "• Canales",
-                value: `🌐|Total: ${channeldata}\n📺|Categorias: ${dividersdata}\n<:Kitsunity_TextoIcono:847643715790438440>|Texto: ${textdata}\n<:Kitsunity_VozIcono:847643715928588359>|Vos: ${voicedata}\n<:Kitsunity_StageIcono:847643715845357598>|Stage: ${stagedata}`,
-                inline: false
-              },
-              {
-                name: "• Seguridad",
-                value: `<a:Kitsunity_Verificado:>|Verificación: ${isverify}\n<a:Kitsunity_Verificado:>|Nivel: ${seguritydata}\n🌎|Región: ${regiondata}`,
-                inline: true
-              },
-              {
-                name: "• Premium",
-                value: `<a:Kitsunity_Light:>|Server Premium: ${premium}`
-              })
+           .addField("• Dueñ@", `<:Kitsunity_OwnerCorona:847588726486073394> ${message.guild.owner} | ${message.guild.owner.user.tag}`, true)
+           .addField("• ID", `🆔|${message.guild.id}`, true)
+           .addField("• Fecha de creación: ", `📅|${datedata} (${checkDays(message.channel.guild.createdAt)})`,false)
+           .addField("• Miembros", `<:Kitsunity_MiembrosIcono:847620497017798707>|Totales: ${membersdata}\n<:Kitsunity_OnlineIcono:847620859875164230>|Online: ${uonline}\n<:Kitsunity_BotIcono:847620741112922142>|Bots: ${ubot}\n👫|Humanos: ${uhumnas}`, false)
+           .addField("• Info", `🙂|Emojis: ${emojidata}\n✨|Roles: ${roledata}\n🔰|Rol mas alto: <@${highrole}>\n<:Kitsunity_BoostIcono:>|Boost: ${boostdata}`, true)
+           .addField("• Canales", `🌐|Total: ${channeldata}\n📺|Categorias: ${dividersdata}\n<:Kitsunity_TextoIcono:847643715790438440>|Texto: ${textdata}\n<:Kitsunity_VozIcono:847643715928588359>|Vos: ${voicedata}\n<:Kitsunity_StageIcono:847643715845357598>|Stage: ${stagedata}`, false)
+           .addField("• Seguridad", `<a:Kitsunity_Verificado:>|Verificación: ${isverify}\n<a:Kitsunity_Verificado:>|Nivel: ${seguritydata}\n🌎|Región: ${regiondata}`, true)
+           .addField("• Premium", `<a:Kitsunity_Light:>|Server Premium: ${premium}`, false)
       return message.channel.send(embed);
   }
 };
