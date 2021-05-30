@@ -74,11 +74,11 @@ module.exports = {
       const nick = `${member.nickname !== null ? `${member.nickname}` : 'No tiene .w.'}`;
       const itsbot = member.user.bot ? "Si" : "No";
       const servername = message.guild.name;
-      const rolemax = member.roles.cache.size > 1 ? member.roles.highest.name : "Ninguno u.u";
-      const rolemin = member.roles.cache.size > 1 ? member.roles.lowest.name : "Ninguno u.u";
+      const rolemax = member.roles.cache.size > 1 ? member.roles.highest : "Ninguno u.u";
+      const rolemin = member.roles.cache.size > 1 ? member.roles.lower : "Ninguno u.u";
       const roles = member.roles.cache.size > 1 ? member.roles.cache.sort((a, b) => a.position - b.position).map(r => `${r}`).join(' **|** ') : 'No hay roles aqui .w.';
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`Información de ${member.user.tag} | <@${member.id}>`, usericon)
+      .setAuthor(`Información de ${member.user.tag}`, usericon)
       .setThumbnail(usericon)
       .setColor('RANDOM')
       .addField(`• Información general`, `**<a:kitsunity_sparkling_star:839520700317302825> | Nick:** ${nick}\n**<a:kitsunity_sparkling_star:839520700317302825> | ID:** ${member.id}\n**<a:kitsunity_sparkling_star:839520700317302825> | Bot:** ${itsbot}\n**<a:kitsunity_sparkling_star:839520700317302825> | Estatus:** ${statuses[member.presence.status]}`, true)
