@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const moment = require('moment');
+const db = require('../../util/Database.js');
 const verflevel = {
   NONE: "Ninguna <:Kiysuniy_ModNulo:848436821650178068>",
   LOW: "Baja <:Kitsunity_ModBajo:848437569455783957> ",
@@ -102,6 +103,7 @@ module.exports = {
     let month = 1 + message.guild.createdAt.getMonth(); // Gets month server was created
     let year = message.guild.createdAt.getFullYear(); // Gets year server was created
     */
+    let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
     const embed = new Discord.MessageEmbed()
            .setAuthor(message.guild.name, sicon)
            .setColor("RANDOM")
@@ -110,9 +112,9 @@ module.exports = {
            .addField("• ID", `🆔 | ${message.guild.id}`, true)
            .addField("• Fecha de creación: ", `📅 | ${datedata} (${checkDays(message.channel.guild.createdAt)})`,false)
            .addField("• Miembros", `<:Kitsunity_MiembrosIcono:847620497017798707> | Totales: ${membersdata}\n<:Kitsunity_OnlineIcono:847620859875164230> | Online: ${uonline}\n<:Kitsunity_BotIcono:847620741112922142> | Bots: ${ubot}\n👫 | Humanos: ${uhumnas}`, true)
-           .addField("• Info", `🙂 | Emojis: ${emojidata}\n<:Kitsunity_Roles:848438058030333952> | Roles: ${roledata}\n🔰 | Rol mas alto: @${highrole}\n<:Kitsunity_Boost:848553562983759882> | Boost: ${boostdata}`, true)
+           .addField("• Seguridad", `<:Kitsunity_Verificado:848555172661559296> | Verificación: ${isverify}\n<:Kitsunity_VerificacionTipo:848555700368179240> | Nivel: ${seguritydata}\n<:Kitunity_Mapa:848561794867658812> | Región: ${regiondata}`, false)
+           .addField("• Info", `🙂 | Emojis: ${emojidata}\n<:Kitsunity_Roles:848438058030333952> | Roles: ${roledata}\n🔰 | Rol mas alto: @${highrole}\n<:Kitsunity_Boost:848553562983759882> | Boost: ${boostdata}\n🔸 | Prefix del servidor: ${ServerPrefix}`, true)
            .addField("• Canales", `🌐 | Total: ${channeldata}\n<:Kitsunity_CategoriasCanal:848438137474515014> | Categorias: ${dividersdata}\n<:Kitsunity_TextoIcono:847643715790438440> | Texto: ${textdata}\n<:Kitsunity_VozIcono:847643715928588359> | Voz: ${voicedata}\n<:Kitsunity_StageIcono:847643715845357598> | Stage: ${stagedata}`, true)
-           .addField("• Seguridad", `<:Kitsunity_Verificado:848555172661559296> | Verificación: ${isverify}\n<:Kitsunity_VerificacionTipo:848555700368179240> | Nivel: ${seguritydata}\n<:Kitunity_Mapa:848561794867658812> | Región: ${regiondata}`, true)
     /* const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
            embed.addField("• Premium", `<a:Kitsunity_PremiumLightt:847643557502124062> | Server Premium: ${premium}`, false)*/
       return message.channel.send(embed);
