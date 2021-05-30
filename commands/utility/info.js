@@ -51,41 +51,16 @@ module.exports = {
       };
     let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
     const kitsunitydate = moment(client.user.createdAt).format("DD/MM/YYYY - h:mm A");
+    const authoricon = client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 });
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`Kitsunity`, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+    .setAuthor(`Kitsunity`, authoricon)
     .setDescription(`Holi, mi nombre es **Kitsunity**, fui creada gracias a KitsuneCode, mi proposito es el de entretener y darle un estilo nuevo a los servidores, recibo actualizaciones a dirario y siempre voy enfocada en la inovación, ademas si posees alguna idea genial hasla saber usando el comando **${ServerPrefix}suggest**`)
-    .addFiels(
-        {
-            name: '• Desarollo',
-            value: '<a:kitsunity_sparkling_star:839520700317302825>|KitsuneCode#5011 [Owner]',
-            inline: true
-        },
-        {
-            name: '• Diseño',
-            value: '<a:kitsunity_sparkling_star:839520700317302825>|KitsuneCode#5011\n<a:kitsunity_sparkling_star:839520700317302825>|🌹🌕•カカシ•🌑🌸#0002',
-            inline: true
-        },
-        {
-            name: '• Agradecimientos',
-            value: '<a:kitsunity_sparkling_star:839520700317302825>|🌹🌕•カカシ•🌑🌸#0002\n<a:kitsunity_sparkling_star:839520700317302825>|★彡𝓑𝓸𝔂𝓯𝓻𝓲𝓮𝓷𝓭彡★#9220',
-            inline: false
-        },
-        {
-            name: '• Servidores de apoyo',
-            value: '<a:kitsunity_sparkling_star:839520700317302825>|Ꮯꮮꮜᏼ Ꮻꭲꭺꮶꮜ Ꮐꭺꮇꭼ\n<a:kitsunity_sparkling_star:839520700317302825>|Anime no Sekai\n<a:kitsunity_sparkling_star:839520700317302825>|⚡¡̷H̷I̷B̷R̷Y̷D̷!̷⚡',
-            inline: true
-        },
-        {
-            name: '• Cumpleaños',
-            value: `<:Kitsunity_Pastel:848438243191816242> | ${kitsunitydate} ${checkDays(client.user.createdAt)}`,
-            inline: false
-        },
-        {
-            name: '• Enlaces utiles',
-            value: `🌐|[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity) | [Invitame](https://discord.com/oauth2/authorize?client_id=831865259357896755&permissions=8&scope=bot%20applications.commands)`,
-            inline: false
-        }
-    )
+    .addFiels('• Desarollo', '<a:kitsunity_sparkling_star:839520700317302825>|KitsuneCode#5011 [Owner]', true)
+    .addField('• Diseño', '<a:kitsunity_sparkling_star:839520700317302825>|KitsuneCode#5011\n<a:kitsunity_sparkling_star:839520700317302825>|🌹🌕•カカシ•🌑🌸#0002', true)
+    .addField('• Agradecimientos', '<a:kitsunity_sparkling_star:839520700317302825>|🌹🌕•カカシ•🌑🌸#0002\n<a:kitsunity_sparkling_star:839520700317302825>|★彡𝓑𝓸𝔂𝓯𝓻𝓲𝓮𝓷𝓭彡★#9220', false)
+    .addField('• Servidores de apoyo', '<a:kitsunity_sparkling_star:839520700317302825>|Ꮯꮮꮜᏼ Ꮻꭲꭺꮶꮜ Ꮐꭺꮇꭼ\n<a:kitsunity_sparkling_star:839520700317302825>|Anime no Sekai\n<a:kitsunity_sparkling_star:839520700317302825>|⚡¡̷H̷I̷B̷R̷Y̷D̷!̷⚡', true)
+    .addField('• Cumpleaños', `<:Kitsunity_Pastel:848438243191816242> | ${kitsunitydate} ${checkDays(client.user.createdAt)}`, false)
+    .addField('• Enlaces utiles', `🌐|[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity) | [Invitame](https://discord.com/oauth2/authorize?client_id=831865259357896755&permissions=8&scope=bot%20applications.commands)`, false)
     return message.channel.send(embed)
   }
 };
