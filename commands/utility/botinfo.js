@@ -15,12 +15,12 @@ module.exports = {
   catergory: 'Utilidad',
   async execute(client, message, args) {
       let TotalCommands = await db.get(`botstats_totalcommand`);
+      let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
       cpuStat.usagePercent(function (err, percent, seconds) {
         if (err) {
           return console.log(err);
         }
       const catg = "7";
-      let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
       let Uptime = Util.msToTime(client.uptime);
       const clientico = client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 });
       const embed = new Discord.MessageEmbed()
