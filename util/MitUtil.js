@@ -452,10 +452,10 @@ module.exports = {
 		sec = Math.floor(minutesms / 1000);
 
 		let str = "";
-		if (days) str = str + days + "d ";
-		if (hours) str = str + hours + "h ";
-		if (minutes) str = str + minutes + "m ";
-		if (sec) str = str + sec + "s ";
+		if (days) str = str + days + "Dias ";
+		if (hours) str = str + hours + "Horas";
+		if (minutes) str = str + minutes + "Minutos ";
+		if (sec) str = str + sec + "Segundos ";
 
 		return str;
 	},
@@ -529,7 +529,7 @@ module.exports = {
 
 	timeConverter(UNIX_timestamp) {
 		var a = new Date(UNIX_timestamp * 1000);
-		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+		var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 		var year = a.getFullYear();
 		var month = months[a.getMonth()];
 		var date = a.getDate();
