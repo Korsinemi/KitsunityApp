@@ -30,7 +30,7 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
                 .setColor('RANDOM')
                 .setDescription(`Nya, nyah!!! UwU`)
-                .setImage(randomaction)
+                .setImage(randomsg)
             return message.channel.send(embed);
             }
             nekof();
