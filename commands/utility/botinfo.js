@@ -2,69 +2,42 @@ const Util = require('../../util/MitUtil.js');
 const cpuStat = require("cpu-stat");
 const os = require('os');
 const db = require('../../util/Database.js');
+const Discord = require('discord.js');
 const { version } = require("discord.js");
 
 module.exports = {
   name: 'botinfo',
   description: 'Muestra información sobre mi .w.',
-  aliases: ['info', 'bot', 'uptime', 'kitsunity'],
+  aliases: ['bot', 'uptime'],
   usage: '',
   cooldown: 2,
   args: 0,
   catergory: 'Utilidad',
   async execute(client, message, args) {
-    try {
       let TotalCommands = await db.get(`botstats_totalcommand`);
       cpuStat.usagePercent(function (err, percent, seconds) {
         if (err) {
           return console.log(err);
         }
-        let Uptime = Util.msToTime(client.uptime);
-        return message.channel.send({
-          embed: {
-            title: "Información de Kitsunity",
-            description: args.join(" "),
-            color: "RANDOM",
-            footer: {
-              text: "Hecho con amor por KitsuneCode#5011"
-            },          
-            thumbnail: {
-              url: client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 })
-            },
-            fields: [
-              {
-                name: '• Uso de memoria',
-                value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`,
-                inline: false,
-              },
-              {
-                name: '• Tiempo en linea',
-                value: `${Uptime}`,
-                inline: false,
-              },
-              {
-                name: '• Administradores',
-                value: `KitsuneCode#5011`,
-                inline: false,
-              },
-              {
-                name: '• Usuarios',
-                value: `${client.users.cache.size}`,
-                inline: false,
-              },
-              {
-                name: '• Servidores',
-                value: `${client.guilds.cache.size}`,
-                inline: false,
-              },
+      });
+      const catg = "7";
+      let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
+      let Uptime = Util.msToTime(client.uptime);
+      const clientico = client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 });
+      const embed = new Discord.MessageEmbed()
+        .setTitle('Información de Kitunity', clientico)
+        .addField('• Estadisticas generales', `<:Kitsunity_Codigo:848628754523881483> | Versión: 1.6.3\n<:Kitsunity_Codigo:848628754523881483> | Tiempo en linea: ${Uptime}\n<:Kitsunity_Codigo:848628754523881483> | Memoria: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB\n<:Kitsunity_Codigo:848628754523881483> | CPU: ${percent.toFixed(2)}%\n<:Kitsunity_Codigo:848628754523881483> | Versión de NPM: ${process.version}\n<:Kitsunity_Codigo:848628754523881483> | Versión de Discord.js: ${version}\n<:Kitsunity_Codigo:848628754523881483> | Prefix: ${ServerPrefix}\n<:Kitsunity_Codigo:848628754523881483> | Leguajes: JS y Python`, true)
+        .addField('• Datos', `<:Kitsunity_Codigo:848628754523881483> | Usuarios: ${client.users.cache.size}\n<:Kitsunity_Codigo:848628754523881483> | Servidores: ${client.guilds.cache.size}\nn<:Kitsunity_Codigo:848628754523881483> | Comandos totales: ${client.commands.size}\n<:Kitsunity_Codigo:848628754523881483> | Categorias totales: ${catg}\n<:Kitsunity_Codigo:848628754523881483> | N. de veces usados: ${TotalCommands}`, false)
+        .addField('• Enlaces Utiles', `**[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity)**`, false)
+        .setFooter('Hecho con ❤ por KitsuneCode#5011')
+      return message.channel.send(embed);
+  }
+};
+      /*
+
               {
                 name: '• Canales',
                 value: `${client.channels.cache.size}`,
-                inline: false,
-              },
-              {
-                name: '• Comandos Usados',
-                value: `${TotalCommands}`,
                 inline: false,
               },
               {
@@ -87,18 +60,6 @@ module.exports = {
                 value: `\`\`${os.platform()}\`\``,
                 inline: false,
               },
-              /*
-              {
-                name: '• Discord.js',
-                value: `\`\`v${version}\`\``,
-                inline: true,
-              },
-              */
-              {
-                name: '• Versiónn de NPM',
-                value: `\`\`${process.version}\`\``,
-                inline: false,
-              },
               {
                 name: '• Clusters',
                 value: `💎 (27/48)`,
@@ -115,11 +76,6 @@ module.exports = {
                 inline: false,
               },
               {
-                name: '• Enlaces Utiles',
-                value: `[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity)`,
-                inline: false,
-              },
-              {
                 name: '• Staff',
                 value: `Para ver los miembros usa \`\`k=credits\`\``,
                 inline: false,
@@ -127,12 +83,4 @@ module.exports = {
             ],
             timestamp: new Date()
           }
-        });
-      });
-    } catch (err) {
-      console.log(err);
-      return message.reply(`Oh no, an error occurred. Try again later!`);
-    }
-  }
-
-};
+          */
