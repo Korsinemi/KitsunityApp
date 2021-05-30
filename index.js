@@ -95,7 +95,7 @@ setInterval(async function () {
         type: "LISTENING",
       },
       {
-        activity: "La versión 1.6.2 ✨ | k=help",
+        activity: "la versión 1.6.3 ✨ | k=help",
         type: "LISTENING",
       },
       {
