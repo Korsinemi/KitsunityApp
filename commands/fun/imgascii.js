@@ -6,10 +6,10 @@ module.exports = {
     name: 'imgascii',
     description: 'Convierte una imagen en ascii .w.',
     aliases: ['asciify'],
-    usage: ' [url de la imagen]',
+    usage: ' <URL>',
     cooldown: 10,
     args: 1,
-    catergory: 'Utilidad',
+    catergory: 'Entretenimiento',
     async execute(client, message, args) {
         try {
             var options = {

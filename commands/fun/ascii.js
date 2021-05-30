@@ -1,4 +1,5 @@
 const db = require('../../util/Database.js');
+const figlet = require('figlet');
 
 module.exports = {
     name: 'asciitext',
@@ -12,23 +13,27 @@ module.exports = {
         try {
             message.react('🏆');
             let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
-            let typing = args.join("+").split(",");
-            if (typing.length < 2) {
+            let typing = args.join(" ").split(",");
+            if (typing.length < 1) {
                 return message.reply(`Como genero el texto en ascii??, prueba esto ``${ServerPrefix}ascii Kitsunity,5lineoblique``, para ver las fuentes validas usa el comando ``${ServerPrefix}scripts```)
             }
             Typeface = typing[0];
             Font = typing[1];
 
-            if (Typeface > 23){
+            if (typing[0].lengh > 23){
                 message.channel.send('Para una visualización perfecta se recomienda tener menos de 23 letras .w.')
             }
 
-            EndResult = `https://artii.herokuapp.com/make?text=${Typeface}&font=${Font}`
+            if (typing[1].lengh == 0){
+                Font === 'Standard'
+            }
 
-            message.channel.send(EndResult, { code: true });
+            figlet.text(`${Typeface}`, {font: `${Font}`}, (err, rendered) => {
+                callback(err, "```" + rendered + "```");
+              });
         } catch (err) {
-    console.log(err);
-    return message.reply(`Oh no, an error occurred. Try again later!`);
-}
+            console.log(err);
+            return message.reply(`Oh no, an error occurred. Try again later!`);
+        }
     }
 };

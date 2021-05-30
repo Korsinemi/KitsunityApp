@@ -1,6 +1,6 @@
 {
   "name": "kitsunity",
-  "version": "1.6.1",
+  "version": "1.6.3",
   "description": "[[My Website]](https://mitsuzi.xyz/)",
   "main": "index.js",
   "dependencies": {
@@ -20,6 +20,7 @@
     "dblapi.js": "^2.4.1",
     "discord-anti-spam": "^2.5.1",
     "discord.js": "^12.5.3",
+    "figlet": "^1.5.0",
     "fs": "^0.0.1-security",
     "genius-api": "^0.3.0",
     "genius-lyrics-api": "^3.0.6",
