@@ -1,7 +1,7 @@
 {
   "name": "kitsunity",
   "version": "1.6.3",
-  "description": "[[My Website]](https://mitsuzi.xyz/)",
+  "description": "[[My Website]](https://kitsunity.glitch.me/)",
   "main": "index.js",
   "dependencies": {
     "anime-facts": "^4.2.8",

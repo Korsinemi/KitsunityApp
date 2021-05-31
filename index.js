@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+const keepAlive = require("./server");
 const Util = require('./util/MitUtil.js');
 const db = require('./util/Database.js');
 
@@ -462,4 +462,5 @@ dbl.webhook.on('vote', vote => {
   console.log(`User with ID ${vote.user} just voted!`);
 });*/
 
+client.login(process.env.LIFE);
 client.login(token);
