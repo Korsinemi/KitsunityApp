@@ -3,31 +3,31 @@ const db = require('../../util/Database.js');
 
 module.exports = {
   name: 'antispam',
-  description: 'Toggles the anti spam module for the server',
+  description: 'Activa el Anti-Spam en el servidor',
   aliases: ['as', 'spam'],
-  usage: ' [on/off]',
+  usage: ' <on/off>',
   cooldown: 2,
   args: 1,
-  catergory: 'Server Settings',
-  async execute(message, args, client) {
+  catergory: 'Configuración',
+  async execute(client, message, args) {
     try {
       let Toggle = args[0].toLowerCase();
       if (Toggle != "off" && Toggle != "on") {
-        return message.reply("Please choose a option, on or off!");
+        return message.reply("Elije una opcion **on** o **off**");
       }
 
       if (!message.member.hasPermission('ADMINISTRATOR')) {
-        return message.reply("Please make sure you have administrator perms!")
+        return message.reply("Asegurate que tienes permisos de administrador >.<!")
       }
 
       db.set(`${message.guild.id}_antispam`, Toggle);
       return message.channel.send({
         embed: {
           title: "Server Anti-Spam",
-          description: `**Status:** ${Toggle}`,
+          description: `**Estatus:** ${Toggle}`,
           color: "#8B0000",
           footer: {
-            text: "Requested by " + message.author.tag,
+            text: "Pedido por " + message.author.tag,
             icon_url: message.author.displayAvatarURL()
           },
           timestamp: new Date()

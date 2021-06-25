@@ -39,6 +39,9 @@ module.exports = {
   args: 0,
   catergory: 'Utilidad',
   async execute(client, message, args) {
+    message.react('848437798292946956');
+    message.channel.send('Comando en mantenimiento n.n!!')
+    /*
     function checkDays(date) {
       let now = new Date();
       let diff = now.getTime() - date.getTime();
@@ -92,17 +95,17 @@ module.exports = {
     const dividersdata = message.guild.channels.cache.filter(c => c.type === "category").size;
     const voicedata = message.guild.channels.cache.filter(c => c.type === "voice").size;
     const textdata = message.guild.channels.cache.filter(c => c.type === "text").size;
-    /* Nuevo!! */
+    /* Nuevo!! 
     const stagedata =  message.guild.channels.cache.filter(c => c.type === "stage").size;
-    /* Nuevo!! */
+    /* Nuevo!! 
     const sicon = message.guild.iconURL({ format: 'png', dynamic: true, size: 1024 });
     const regiondata = regions[message.guild.region];
     const seguritydata = verflevel[message.guild.verificationLevel];
-    /*
+    
     let day = message.guild.createdAt.getDate(); // Gets day server was created
     let month = 1 + message.guild.createdAt.getMonth(); // Gets month server was created
     let year = message.guild.createdAt.getFullYear(); // Gets year server was created
-    */
+    
     let ServerPrefix = await db.get(`${message.guild.id}_prefix`);
     const embed = new Discord.MessageEmbed()
            .setAuthor(message.guild.name, sicon)
@@ -116,8 +119,10 @@ module.exports = {
            .addField("• Info", `**🙂 | Emojis:** ${emojidata}\n**<:Kitsunity_Roles:848438058030333952> | Roles:** ${roledata}\n**🔰 | Rol mas alto:** @${highrole}\n**<:Kitsunity_Boost:848553562983759882> | Boost:** ${boostdata}\n**🔸 | Prefix del servidor:** ${ServerPrefix}`, false)
            .addField("• Canales", `**🌐 | Total:** ${channeldata}\n**<:Kitsunity_CategoriasCanal:848438137474515014> | Categorias:** ${dividersdata}\n**<:Kitsunity_TextoIcono:847643715790438440> | Texto:** ${textdata}\n**<:Kitsunity_VozIcono:847643715928588359> | Voz:** ${voicedata}\n**<:Kitsunity_StageIcono:847643715845357598> | Stage:** ${stagedata}`, false)
            
-    /* const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
-           embed.addField("• Premium", `<a:Kitsunity_PremiumLightt:847643557502124062> | Server Premium: ${premium}`, false)*/
+     const premium = message.guild.id = premiumsv ? '<a:Kitsunity_PremiumLightt:847643557502124062> Es KitsunityLight Server (Premium)' : 'No es premium';
+           embed.addField("• Premium", `<a:Kitsunity_PremiumLightt:847643557502124062> | Server Premium: ${premium}`, false)
       return message.channel.send(embed);
+      */
   }
+
 };

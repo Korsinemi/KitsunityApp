@@ -18,6 +18,7 @@ module.exports = {
                 .setColor('RANDOM')
                 .setDescription(`**${message.author.username}** se acurruco :P`)
                 .setImage(GIF.url)
+                .setFooter(`Anime: ${GIF.anime}`)
                 return message.channel.send(embed);
             }
             const member = message.mentions.members.first();

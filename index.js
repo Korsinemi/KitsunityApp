@@ -1,10 +1,9 @@
-const fs = require('fs');
 const keepAlive = require("./server");
 const Util = require('./util/MitUtil.js');
 const db = require('./util/Database.js');
 
 const Discord = require('discord.js');
-const { prefix, token, ownerid, logchannelid, database, giphy, serverbypass } = require('./config.json');
+const { prefix, token, ownerid, logchannelid, database, giphy, serverbypass, LIFE } = require('./config.json');
 const AntiSpam = require('discord-anti-spam');
 const Canvas = require('canvas');
 
@@ -13,9 +12,9 @@ const antiSpam = new AntiSpam({
     kickThreshold: 7, // Amount of messages sent in a row that will cause a ban.
     banThreshold: 10, // Amount of messages sent in a row that will cause a ban.
     maxInterval: 3000, // Amount of time (in milliseconds) in which messages are considered spam.
-    warnMessage: '{@user}, Please stop spamming.', // Message that will be sent in chat upon warning a user.
-    kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
-    banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
+    warnMessage: '{@user}, Por favotr deja el spam.', // Message that will be sent in chat upon warning a user.
+    kickMessage: '**{user_tag}** fue expulsado por spam.', // Message that will be sent in chat upon kicking a user.
+    banMessage: '**{user_tag}** fue baneado por spam.', // Message that will be sent in chat upon banning a user.
     maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
     maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
     maxDuplicatesBan: 12, // Amount of duplicate messages that trigger a warning.
@@ -27,9 +26,17 @@ const antiSpam = new AntiSpam({
 
 const client = new Discord.Client();
 const cooldowns = new Discord.Collection();
+const snipes = new Discord.Collection();
+const fs = require('fs');
+/*
+require('discord-buttons')(client);
+const { MessageButton, MessageActionRow } = require('discord-buttons');
+*/
+
 client.UsersBalance = new Discord.Collection();
 client.commands = new Discord.Collection();
 client.queue = new Map();
+
 
 /*
 const DBL = require("dblapi.js");
@@ -49,14 +56,28 @@ for (let i = 0; i < ListOfFiles.length; i++) {
     }
 };
 
-client.on("reconnecting", () => {
+client.on('reconnecting', () => {
     console.log("Reconectando a Kitsunity nwn...")
     client.setStatus('dnd');
 });
 
 client.on('ready', () => {
+    console.log("Limpiando consola... uwu");
+    console.clear();
     console.log("Estoy conectada correctamente!!");
-    console.log('Seción iniciada como ' + client.user.username + '.w.');
+    console.log(`------------- x -------------`);
+    let rawdata = fs.readFileSync('./include/assets/json/game.json');
+    let Game = JSON.parse(rawdata);
+    let ListOfFiles = Game.data["filecommands"];
+    for (let i = 0; i < ListOfFiles.length; i++) {
+		const commandFiles = fs.readdirSync(`./commands/${ListOfFiles[i]}/`).filter(file => file.endsWith('.js'));
+		for (const file of commandFiles) {
+			const command = require(`./commands/${ListOfFiles[i]}/${file}`);
+			console.log(`✅  | Comando cargado ${file}`);
+    }
+  };
+  	console.log(`-----------------------------`);
+    console.log('Seción iniciada como ' + client.user.username + ' !!!');
     console.log("Comandos totales: " + client.commands.size);
     console.log("Usuarios totales: " + client.users.cache.size);
     console.log("Servidores totales: " + client.guilds.cache.size);
@@ -76,14 +97,14 @@ client.on('ready', () => {
     console.log("\n");
 
     const catg = "7"
-setInterval(async function () {
+    setInterval(async function () {
     const status = [
       {
-        activity: `${client.users.cache.size} usuarios en ${client.guilds.cache.size} servidores`,
+        activity: `${client.users.cache.size} usuarios en ${client.guilds.cache.size} servidores uwu!!`,
         type: "WATCHING",
       },
       {
-        activity: "k=help | @Kitsunity",
+        activity: "o!help | @Osakana",
         type: "WATCHING",
       },
       {
@@ -91,19 +112,19 @@ setInterval(async function () {
         type: "PLAYING",
       },
       {
-        activity: `${client.commands.size} comandos y ${catg} categorias`,
+        activity: `${client.commands.size} comandos y ${catg} categorias >w<!!`,
         type: "LISTENING",
       },
       {
-        activity: "la versión 1.6.3 ✨ | k=help",
+        activity: "la versión 1.0.0 💝 | o!help",
         type: "LISTENING",
       },
       {
-        activity: `${client.channels.cache.size} canales`,
+        activity: `${client.channels.cache.size} canales :D`,
         type: "COMPETING",
       },
       {
-        activity: "🦊 @Kitsunity",
+        activity: "o!help | UwU",
         type: "LISTENING",
       }
     ];
@@ -135,8 +156,6 @@ setInterval(async function () {
 
 client.on('message', async message => {
     try {
-        if (message.author.bot || !message.guild || !message.guild.available) return;
-
         var start = new Date();
 
         let ServerPrefix = prefix;
@@ -264,7 +283,7 @@ client.on('message', async message => {
         }
 
         if (command.args != args.length && command.args != 0 && !(command.args == -1 && args.length > 0)) {
-            let reply = "**Description:** " + command.description + "\n";
+            let reply = "**Descripcion:** " + command.description + "\n";
             reply += "**Cooldown:** " + command.cooldown + "\n";
             reply += "**Aliases:** " + command.aliases + "\n";
             reply += "\n**Usage:** \n" + ServerPrefix + command.name + " " + command.usage + "\n";
@@ -295,19 +314,18 @@ client.on('message', async message => {
                 const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
                 if (now < expirationTime) {
+					const lefttime = [
+					   `Vas a quemar el teclado si sigues asi!!! >.<`,
+					   `Bajale lineas a tu velocidad!!! >u<`,
+					   `Woah!!! Si sigues asi pasaras la velocidad de la luz >-<`,
+					   `Calmate y relajate un rato, senpai!!! o.O`,
+					   `Hey!!!! Detente!!! >.<`,
+					   `Si seguimos con esa velocidad Discord nos va a regañar :c`
+					]
+					const leftmsg = lefttime[Math.floor(Math.random() * lefttime.length)]
                     const timeLeft = (expirationTime - now) + 1000;
-                    return message.channel.send({
-                        embed: {
-                            title: `Whoa! You're sending commands too fast!`,
-                            description: `Por favor espera **${Util.msToTime(timeLeft)}** antes de usar \`${command.name}\` denuevo! \n\`\`\`Puedes contactar a mi dueña para adquirir premium (KitsuneCode#5011)\`\`\``,
-                            color: "#8B0000",
-                            footer: {
-                                text: "Requested by " + message.author.tag,
-                                icon_url: message.author.displayAvatarURL
-                            },
-                            timestamp: new Date()
-                        }
-                    });
+					const coolmsg = [`**<a:OsakanaReloj:857671171243900948> |** **${message.author.username}!!!** ${leftmsg}\nPor favor espera **${Util.msToTime(timeLeft)}** antes de usar \`${command.name}\` denuevo >.<!\nTe aburres de la espera, escribe sin limites con **Osakana+**, pregunta por ello en el servidor de soporte`]
+                    return message.channel.send(coolmsg);
                 }
 
                 timestamps.set(message.author.id, now);
@@ -418,6 +436,14 @@ client.on('guildMemberAdd', async member => {
 client.on("guildCreate", guild => {
     try {
         db.set(`${guild.id}_info`, `${guild.name}`);
+        const channel = guild.channels.cache.find(channel => channel.type === 'text' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
+        
+        const welcomer = new Discord.MessageEmbed()
+          .setTitle(guild.name)
+          .setDescription(`Ohayo, soy Kitsunity UwU, gracias por invitarme a tu servidor, si tienes problemas puedes visitar **[mi sitio web](https://kitsunity.glitch.me)** o puedes utilizar **k=help** para ver los comandos uwu`)
+          .setColor("RANDOM")
+          .setImage('https://i.imgur.com/oPEvNK8.gif')
+        channel.send(welcomer)
 
         client.users.cache.get(ownerid).send(`Se ha unido un nuevo servidor: ${guild.name} (id: ${guild.id}). Este servidor tiene ${guild.memberCount} miembros!`);
         client.users.cache.get("841092321448951838").send(`Se ha unido un nuevo servidor: ${guild.name} (id: ${guild.id}). Este servidor tiene ${guild.memberCount} miembros!`);
@@ -462,5 +488,6 @@ dbl.webhook.on('vote', vote => {
   console.log(`User with ID ${vote.user} just voted!`);
 });*/
 
-client.login(process.env.LIFE);
+keepAlive();
+client.login(LIFE);
 client.login(token);

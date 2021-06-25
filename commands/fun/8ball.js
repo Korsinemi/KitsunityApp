@@ -11,12 +11,15 @@ module.exports = {
   catergory: 'Entretenimiento',
   async execute(client, message, args) {
       message.react('🎱');
-      if (!args[1]) return message.reply("La pregunta es muy corta!, preguntame de nuevo >.<").then(m => m.delete(3000));
+      const colorfy = message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 'RANDOM';
+      if (!args[1]) return message.reply("La pregunta es muy corta!, preguntame de nuevo >.<");
+      message.react('🎱');
       const replies = [
         "Muy probablemente si u.u",
         "Lo dudo e.e",
         "Probablemente n.n",
         "Definitivamente .w.",
+        "Yo creo que si >w<",
         "No estoy segura de eso o.O",
         "Por lo que veo, si u.u",
         "Digo que si, pero tu? unu",
@@ -44,7 +47,7 @@ module.exports = {
       const question = args.slice(0).join(" ");
       const embed = new Discord.MessageEmbed()
         .setAuthor("🎱 La bola 8 dice...")
-        .setColor('RANDOM')
+        .setColor(colorfy)
         .addField("Pregunta:", question)
         .addField("Mi respuesta:", replies[result]);
       return message.channel.send(embed);

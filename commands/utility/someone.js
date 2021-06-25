@@ -13,16 +13,11 @@ module.exports = {
       const member = message.guild.members.cache.random(1)[0];
       return message.channel.send({
         embed: {
-          title: "Se ha elejido un usuario al azar",
+          title: "Aqui tienes al usuario elejido nwn",
           color: "RANDOM",
           fields: [{
             name: '• Usuario',
-            value: member.user.usernameta,
-            inline: false,
-          },
-          {
-            name: '• Tag',
-            value: member.user.discriminator,
+            value: member.user.username,
             inline: false,
           },
           {

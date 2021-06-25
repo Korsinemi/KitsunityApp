@@ -3,12 +3,12 @@ const Util = require('../../util/MitUtil.js');
 module.exports = {
   name: 'purge',
   description: 'Purges 2 - 100 messages in the channel',
-  aliases: ['deletemessage', 'delete'],
-  usage: '[number]',
+  aliases: ['deletemessage', 'delete', 'clean', 'purify'],
+  usage: ' <Numero entre 3 y 100>',
   cooldown: 2,
   args: 1,
-  catergory: 'Moderation',
-  async execute(message, args, client) {
+  catergory: 'Moderación',
+  async execute(client, message, args) {
     try {
       let DeleteMessage = args[0];
       if (isNaN(DeleteMessage)) {
@@ -21,10 +21,10 @@ module.exports = {
 
       if (!message.member.hasPermission('ADMINISTRATOR') ||
         !message.member.hasPermission('MANAGE_MESSAGES')) {
-        return message.reply("Please make sure you have administrator/manage messages perms!")
+        return message.reply("Asegurate de tener permisos de administrador o administrar mensajes >.<!")
       }
 
-      await message.channel.bulkDelete(DeleteMessage).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+      await message.channel.bulkDelete(DeleteMessage).catch(error => message.reply(`No pude eliminar los mensajes: ${error}`));
     } catch (err) {
       console.log(err);
       return message.reply(`Oh no, an error occurred. Try again later!`);

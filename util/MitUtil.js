@@ -452,10 +452,10 @@ module.exports = {
 		sec = Math.floor(minutesms / 1000);
 
 		let str = "";
-		if (days) str = str + days + " Dias ";
-		if (hours) str = str + hours + " H ";
-		if (minutes) str = str + minutes + "M ";
-		if (sec) str = str + sec + " Seg ";
+		if (days) str = str + days + "**D** ";
+		if (hours) str = str + hours + "**H** ";
+		if (minutes) str = str + minutes + "**M** ";
+		if (sec) str = str + sec + "**S** ";
 
 		return str;
 	},

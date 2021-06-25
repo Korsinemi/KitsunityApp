@@ -12,7 +12,9 @@
             "pictures",
             "reaction",
             "server",
-            "utility"
+            "utility",
+            "owner",
+            "amongus"
         ],
         "searchLocation": [
             "discord",

@@ -12,6 +12,7 @@ module.exports = {
   args: 0,
   catergory: 'Utilidad',
   async execute(client, message, args) {
+    const colorfy = message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 'RANDOM';
     function checkDays(date) {
       let now = new Date();
       let diff = now.getTime() - date.getTime();
@@ -55,13 +56,13 @@ module.exports = {
     const authoricon = client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 });
     const embed = new Discord.MessageEmbed()
     .setAuthor(`Kitsunity`, authoricon)
-    .setColor(`RANDOM`)
+    .setColor(colorfy)
     .setDescription(`Holi, mi nombre es **Kitsunity**, soy hija de **KitsuneCode#5011**, mi proposito es el de entretener y darle un estilo nuevo a los servidores, recibo actualizaciones a diario y siempre voy enfocada en la inovación, consiguiendo siempre comandos nuevos, ademas, siempre acepto nuevas sugerencias para mejorar mi desempeño, por ende si posees alguna idea genial hasla saber usando el comando **${ServerPrefix}suggest** y sera bienvenida uwu`)
     .addField('• Desarollo', '**<a:kitsunity_sparkling_star:839520700317302825> | KitsuneCode#5011 [Owner]**', true)
     .addField('• Diseño', '**<a:kitsunity_sparkling_star:839520700317302825> | KitsuneCode#5011\n<a:kitsunity_sparkling_star:839520700317302825> | 🌹🌕•カカシ•🌑🌸#0002**', true)
     .addField('• Cumpleaños', `<:Kitsunity_Pastel:848438243191816242> | ${kitsunitydate} (${checkDays(client.user.createdAt)})`, false)
-    .addField('• Agradecimientos', '**<a:kitsunity_sparkling_star:839520700317302825> | 🌹🌕•カカシ•🌑🌸#0002\n<a:kitsunity_sparkling_star:839520700317302825> | ★彡𝓑𝓸𝔂𝓯𝓻𝓲𝓮𝓷𝓭彡★#9220\n<a:kitsunity_sparkling_star:839520700317302825> | Ichiro 『👑』#1630**', true)
-    .addField('• Servidores de apoyo', '**<a:kitsunity_sparkling_star:839520700317302825> | Ꮯꮮꮜᏼ Ꮻꭲꭺꮶꮜ Ꮐꭺꮇꭼ\n<a:kitsunity_sparkling_star:839520700317302825> | Anime no Sekai\n<a:kitsunity_sparkling_star:839520700317302825> | ⚡¡̷H̷I̷B̷R̷Y̷D̷!̷⚡**', true)
+    .addField('• Agradecimientos', '**<a:kitsunity_sparkling_star:839520700317302825> | 🌹🌕•カカシ•🌑🌸#0002\n<a:kitsunity_sparkling_star:839520700317302825> | ★彡chara彡★#9220\n<a:kitsunity_sparkling_star:839520700317302825> | Ichiro 『👑』#1630\n<a:kitsunity_sparkling_star:839520700317302825> | TheSkeleRock48#0048**', true)
+    .addField('• Servidores de apoyo', '**<a:kitsunity_sparkling_star:839520700317302825> | Ꮯꮮꮜᏼ Ꮻꭲꭺꮶꮜ Ꮐꭺꮇꭼ\n<a:kitsunity_sparkling_star:839520700317302825> | Anime no Sekai\n<a:kitsunity_sparkling_star:839520700317302825> | ⚡¡̷H̷I̷B̷R̷Y̷D̷!̷⚡\n<a:kitsunity_sparkling_star:839520700317302825> | 🍞ღPANADERIAღ🍞\n<a:kitsunity_sparkling_star:839520700317302825> | La Cafeteria de DayRetro**', true)
     .addField('• Enlaces utiles', `**[Sitio web](https://kitsunity.glitch.me) | [Servidor de soporte](https://discord.gg/r3SPkEjNjC) | [GitHub](https://github.com/KitsuneCode/Kitsunity) | [Invitame](https://discord.com/oauth2/authorize?client_id=831865259357896755&permissions=8&scope=bot%20applications.commands)**`, false)
     return message.channel.send(embed)
   }

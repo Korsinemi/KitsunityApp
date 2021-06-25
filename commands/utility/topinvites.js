@@ -15,7 +15,7 @@ module.exports = {
 
       let Description = "No hay invitaciones aqui u.u";
       if (topTen.length) {
-        Description = topTen.map((inv) => `•El codigo de invitacion ${inv.code} de **${inv.inviter.username}** tiene **${inv.uses.toLocaleString()}** usos!!`).join("\n");
+        Description = topTen.map((inv) => `• El codigo de invitacion ${inv.code} de **${inv.inviter.username}** tiene **${inv.uses.toLocaleString()}** usos!!`).join("\n");
       }
 
       return message.channel.send({

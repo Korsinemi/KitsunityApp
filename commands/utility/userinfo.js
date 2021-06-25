@@ -78,7 +78,7 @@ module.exports = {
       /*
       const rolemin = member.roles.cache.size > 1 ? member.roles.lower : "Ninguno u.u";
       */
-      const roles = member.roles.cache.size > 1 ? member.roles.cache.sort((a, b) => a.position - b.position).map(r => `${r}`).join(' **|** ') : 'No hay roles aqui .w.';
+      const roles = member.roles.cache.size > 1 ? member.roles.cache.sort((a, b) => a.position - b.position).map(r => `${r}`).join(', ') : 'No hay roles aqui .w.';
       const embed = new Discord.MessageEmbed()
       .setAuthor(`Información de ${member.user.tag}`, usericon)
       .setThumbnail(usericon)

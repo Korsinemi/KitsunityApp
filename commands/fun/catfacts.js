@@ -1,5 +1,5 @@
 const Util = require('../../util/MitUtil.js');
-const animaction = require('../../util/animaction/index.js');
+const accionex = require('../../util/accionex/accionex.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -12,12 +12,12 @@ module.exports = {
     catergory: 'Entretenimiento',
     async execute(client, message, args) {
         message.react('🐈');
-        const catfact = animaction.catfacts();
-        const animaction_embed = new Discord.MessageEmbed()
+        const colorfy = message.guild.me.displayHexColor!=='#000000' ?message.guild.me.displayHexColor : 'RANDOM';
+        const catfact = accionex.catfacts();
+        const embed = new Discord.MessageEmbed()
             .setTitle('Datos sobre los gatos')
-            .setColor('RANDOM')
+            .setColor(colorfy)
             .setDescription(catfact)
-            .setFooter('Potenciado por animaction');
-        return message.channel.send(animaction_embed);
+        return message.channel.send(aembed);
     }
 };

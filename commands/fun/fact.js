@@ -1,6 +1,6 @@
 const Util = require('../../util/MitUtil.js');
 const Discord = require('discord.js');
-const animaction = require('../../util/animaction/index.js');
+const accionex = require('../../util/accionex/accionex.js');
 
 module.exports = {
   name: 'fact',
@@ -11,13 +11,13 @@ module.exports = {
   args: 0,
   catergory: 'Entretenimiento',
   async execute(client, message, args) {
-        message.react('💎');
-        const fact = animaction.facts();
-        const animaction_embed = new Discord.MessageEmbed()
-            .setTitle('Sabias que...')
-            .setColor('RANDOM')
-            .setDescription(fact)
-            .setFooter('Potenciado por animaction de KitsuneCode');
-        return message.channel.send(animaction_embed);
+      message.react('💎');
+      const colorfy = message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 'RANDOM';
+      const fact = accionex.facts();
+      const embed = new Discord.MessageEmbed()
+        .setTitle('Sabias que...')
+        .setColor(colorfy)
+        .setDescription(fact)
+      return message.channel.send(embed);
     }
 };

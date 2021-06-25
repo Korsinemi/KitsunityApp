@@ -5,14 +5,14 @@ const url = require('url');
 
 module.exports = {
 	name: 'capturewebsite',
-	description: "Return a screenshot of the website",
+	description: "Envia una aptura del sitio web",
 	aliases: ['website', 'webss', 'web', 'capture'],
-	usage: ' [url]',
+	usage: ' <Url>',
 	cooldown: 3,
 	args: 1,
-	catergory: 'Utility',
+	catergory: 'Utilidad',
 	pornList: [],
-	async execute(message, args, client) {
+	async execute(client, message, args) {
 		try {
 			if (message.channel.nsfw == true) {
 				let site = args[0];
@@ -20,17 +20,17 @@ module.exports = {
 					if (!this.pornList) await this.fetchPornList();
 					const parsed = url.parse(site);
 					if (this.pornList.some(pornURL => parsed.host === pornURL) && !message.channel.nsfw) {
-						return message.reply('This site is NSFW.');
+						return message.reply('Este sitio es **NSFW** >.<');
 					}
 					const { body } = await request.get(`https://image.thum.io/get/width/1920/crop/675/noanimate/${site}`);
 					return message.channel.send({ files: [{ attachment: body, name: 'screenshot.png' }] });
 				} catch (err) {
-					if (err.status === 404) return message.channel.send('Could not find any results. Invalid URL?');
+					if (err.status === 404) return message.channel.send('No encontre resultados,es una URL valida u.u?');
 					console.log(err);
 					return message.reply(`Oh no, an error occurred. Try again later!`);
 				}
 			} else {
-				message.reply("This isn't NSFW channel!")
+				message.reply("Este no es un canal NSFW >.<!!")
 			}
 		} catch (err) {
 			console.log(err);

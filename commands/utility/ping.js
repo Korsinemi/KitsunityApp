@@ -15,16 +15,15 @@ module.exports = {
                 embed: {
                     title: "📶 Ping",
                     description: [
-                        "**📡 API**: `" + (botMsg.createdAt - message.createdAt) + "ms`",
-                        "**💻 WebSocket**: `" + client.ws.ping + "ms`",
-                        "**🕹 Tiempo online**: `" + Util.msToTime(client.uptime) + "`"
+                        "**📡 | API**: `" + (botMsg.createdAt - message.createdAt) + "ms`",
+                        "**💻 | WebSocket**: `" + client.ws.ping + "ms`",
+                        "**🕹 | Tiempo online**: `" + Util.msToTime(client.uptime) + "`"
                     ].join("\n"),
-                    color: "#8B0000",
+                    color: "RANDOM",
                     footer: {
-                        text: "Requested by " + message.author.tag,
-                        icon_url: message.author.displayAvatarURL()
+                        text: "Kitsunity Versión 1.6.5",
+                        icon_url: client.user.displayAvatarURL()
                     },
-                    timestamp: new Date()
                 }
             }).catch(() => botMsg.edit("🆘 An unknown error occurred. Do I have permission? (Embed Links)"));
         } catch (err) {

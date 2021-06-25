@@ -12,6 +12,7 @@ module.exports = {
     async execute(client, message, args) {
         try {
             message.react('❇');
+            const colorfy = message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 'RANDOM';
             let text = args.join(" ");
             const { body } = await request
                 .get('https://api.qrserver.com/v1/create-qr-code/')
@@ -23,7 +24,7 @@ module.exports = {
                     image: {
                         url: 'attachment://qr-code.png',
                     },
-                    color: "RANDOM",
+                    color: colorfy,
                     footer: {
                         text: "Texto del QR: " + text
                     },

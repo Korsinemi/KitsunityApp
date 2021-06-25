@@ -1,3 +1,12 @@
 # Librerias requeridas
 node_modules
-animaction
+# Entornos de repl.it
+.replit
+# Configuración
+config.json
+# Entorno de Heroku (Emergencia)
+Procfile
+# Bases de datos 
+database
+# Servidor
+server.js
